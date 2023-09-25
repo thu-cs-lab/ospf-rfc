@@ -20,6 +20,7 @@
         <link href="https://static.ietf.org/fonts/noto-sans-mono/import.css" rel="stylesheet">
         
             <link rel="stylesheet" href="https://www.ietf.org/lib/dt/11.11.0/ietf/css/document_html_referenced.css">
+            <link rel="stylesheet" href="rfc.css">
             
             <script src="https://www.ietf.org/lib/dt/11.11.0/ietf/js/document_html.js"></script>
             <script src="https://www.ietf.org/lib/dt/11.11.0/ietf/js/theme.js"></script>
@@ -8529,7 +8530,7 @@ Table of Contents
 
 <span class="h2"><a class="selflink" id="section-16" href="#section-16">16</a>.  Calculation of the routing table</span>
 
-    This section details the OSPF routing table calculation.  Using its
+    <span class="hl2">This section details the OSPF routing table calculation.  Using its
     attached areas&#x27; link state databases as input, a router runs the
     following algorithm, building its routing table step by step.  At
     each step, the router must access individual pieces of the link
@@ -8555,7 +8556,7 @@ Table of Contents
         calculated in this step.  This step is described in two parts.
         At first the tree is constructed by only considering those links
         between routers and transit networks.  Then the stub networks
-        are incorporated into the tree. During the area&#x27;s shortest-path
+        are incorporated into the tree.</span> During the area&#x27;s shortest-path
         tree calculation, the area&#x27;s TransitCapability is also
         calculated for later use in Step 4.
 
@@ -8597,7 +8598,7 @@ Table of Contents
 
     <a class="selflink" id="section-16.1" href="#section-16.1">16.1</a>.  Calculating the shortest-path tree for an area
 
-        This calculation yields the set of intra-area routes associated
+        <span class="hl2">This calculation yields the set of intra-area routes associated
         with an area (called hereafter Area A).  A router calculates the
         shortest-path tree using itself as the root.[22] The formation
         of the shortest path tree is done here in two stages.  In the
@@ -8614,7 +8615,7 @@ Table of Contents
         the procedure concerns only the transit vertices (routers and
         transit networks) and their connecting links.  Throughout the
         shortest path calculation, the following data is also associated
-        with each transit vertex:
+        with each transit vertex:</span>
 
 
 
@@ -8623,18 +8624,18 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        Vertex (node) ID
+        <span class="hl2">Vertex (node) ID
             A 32-bit number which together with the vertex type (router
             or network) uniquely identifies the vertex.  For router
-            vertices the Vertex ID is the router&#x27;s OSPF Router ID.  For
+            vertices the Vertex ID is the router&#x27;s OSPF Router ID.</span>  For
             network vertices, it is the IP address of the network&#x27;s
             Designated Router.
 
-        An LSA
+        <span class="hl2">An LSA
             Each transit vertex has an associated LSA.  For router
-            vertices, this is a router-LSA.  For transit networks, this
+            vertices, this is a router-LSA.</span>  For transit networks, this
             is a network-LSA (which is actually originated by the
-            network&#x27;s Designated Router).  In any case, the LSA&#x27;s Link
+            network&#x27;s Designated Router).  <span class="hl2">In any case, the LSA&#x27;s Link
             State ID is always equal to the above Vertex ID.
 
         List of next hops
@@ -8664,7 +8665,7 @@ Table of Contents
         that is closest to the root are guaranteed to be shortest; this
         vertex is added to the shortest-path tree, removed from the
         candidate list, and its adjacent vertices are examined for
-        possible addition to/modification of the candidate list.  The
+        possible addition to/modification of the candidate list.  The</span>
 
 
 
@@ -8673,7 +8674,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        algorithm then iterates again.  It terminates when the candidate
+        <span class="hl2">algorithm then iterates again.  It terminates when the candidate
         list becomes empty.
 
         The following steps describe the algorithm in detail.  Remember
@@ -8683,15 +8684,15 @@ Table of Contents
 
         (1) Initialize the algorithm&#x27;s data structures.  Clear the list
             of candidate vertices.  Initialize the shortest-path tree to
-            only the root (which is the router doing the calculation).
+            only the root (which is the router doing the calculation).</span>
             Set Area A&#x27;s TransitCapability to FALSE.
 
-        (2) Call the vertex just added to the tree vertex V.  Examine
+        <span class="hl2">(2) Call the vertex just added to the tree vertex V.  Examine
             the LSA associated with vertex V.  This is a lookup in the
-            Area A&#x27;s link state database based on the Vertex ID.  If
+            Area A&#x27;s link state database based on the Vertex ID.</span>  If
             this is a router-LSA, and bit V of the router-LSA (see
             <a href="#appendix-A.4.2">Section A.4.2</a>) is set, set Area A&#x27;s TransitCapability to
-            TRUE.  In any case, each link described by the LSA gives the
+            TRUE.  <span class="hl2">In any case, each link described by the LSA gives the
             cost to an adjacent vertex.  For each described link, (say
             it joins vertex V to vertex W):
 
@@ -8714,7 +8715,7 @@ Table of Contents
                 from the root to vertex W.  D is equal to the sum of the
                 link state cost of the (already calculated) shortest
                 path to vertex V and the advertised cost of the link
-                between vertices V and W.  If D is:
+                between vertices V and W.  If D is:</span>
 
 
 
@@ -8723,7 +8724,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-                o   Greater than the value that already appears for
+                <span class="hl2">o   Greater than the value that already appears for
                     vertex W on the candidate list, then examine the
                     next link.
 
@@ -8751,7 +8752,7 @@ Table of Contents
             and this stage of the procedure terminates.  Otherwise,
             choose the vertex belonging to the candidate list that is
             closest to the root, and add it to the shortest-path tree
-            (removing it from the candidate list in the process). Note
+            (removing it from the candidate list in the process).</span> Note
             that when there is a choice of vertices closest to the root,
             network vertices must be chosen before router vertices in
             order to necessarily find all equal-cost paths. This is
@@ -8759,11 +8760,11 @@ Table of Contents
             modified Dijkstra algorithm used by OSPF&#x27;s Multicast routing
             extensions (MOSPF).
 
-        (4) Possibly modify the routing table.  For those routing table
+        <span class="hl2">(4) Possibly modify the routing table.  For those routing table
             entries modified, the associated area will be set to Area A,
             the path type will be set to intra-area, and the cost will
             be set to the newly discovered shortest path&#x27;s calculated
-            distance.
+            distance.</span>
 
 
 
@@ -8811,7 +8812,7 @@ Table of Contents
             be added.  The routing table entry&#x27;s Link State Origin
             should be set to the newly added vertex&#x27; LSA.
 
-        (5) Iterate the algorithm by returning to Step 2.
+        <span class="hl2">(5) Iterate the algorithm by returning to Step 2.</span>
 
 
 
@@ -8823,7 +8824,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        The stub networks are added to the tree in the procedure&#x27;s
+        <span class="hl2">The stub networks are added to the tree in the procedure&#x27;s
         second stage.  In this stage, all router vertices are again
         examined.  Those that have been determined to be unreachable in
         the above first phase are discarded.  For each reachable router
@@ -8864,7 +8865,7 @@ Table of Contents
         For all routing table entries added/modified in the second
         stage, the associated area will be set to Area A and the path
         type will be set to intra-area.  When the list of reachable
-        router-LSAs is exhausted, the second stage is completed.  At
+        router-LSAs is exhausted, the second stage is completed.  At</span>
 
 
 
@@ -8873,7 +8874,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        this time, all intra-area routes associated with Area A have
+        <span class="hl2">this time, all intra-area routes associated with Area A have
         been determined.
 
         The specification does not require that the above two stage
@@ -8883,7 +8884,7 @@ Table of Contents
         transit vertices must be bidirectional in order to be included
         in the above tree.  It should also be mentioned that more
         efficient algorithms exist for calculating the tree; for
-        example, the incremental SPF algorithm described in [<a href="#ref-Ref1">Ref1</a>].
+        example, the incremental SPF algorithm described in [<a href="#ref-Ref1">Ref1</a>].</span>
 
 
         <a class="selflink" id="section-16.1.1" href="#section-16.1.1">16.1.1</a>.  The next hop calculation
@@ -9453,11 +9454,13 @@ Table of Contents
         cost, and will have the same associated area.  However, each
         route may specify a separate next hop and Advertising router.
 
-        There is no requirement that a router running OSPF keep track of
+        <span class="hl2">There is no requirement that a router running OSPF keep track of
         all possible equal-cost routes to a destination.  An
         implementation may choose to keep only a fixed number of routes
         to any given destination.  This does not affect any of the
-        algorithms presented in this specification.
+        algorithms presented in this specification.</span>
+
+        <span class="remarks">本实验中，仅需考虑一个next hop。</span>
 
 
 
