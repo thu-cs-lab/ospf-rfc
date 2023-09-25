@@ -1699,7 +1699,7 @@ Table of Contents
    o  In IPv4, the router-LSA carries a router&#x27;s IPv4 interface
       addresses, the IPv4 equivalent of link-local addresses.  These are
       only used when calculating next hops during the OSPF routing
-      calculation (see Section 16.1.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), so they do not need
+      calculation (see <a href="rfc2328.html#section-16.1.1">Section 16.1.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), so they do not need
       to be flooded past the local link.  Hence, using link-LSAs to
       distribute these addresses is more efficient.  Note that link-
       local addresses cannot be learned through the reception of Hellos
@@ -1796,9 +1796,9 @@ Table of Contents
    NBMA, and point-to-multipoint links are identified by their IPv4
    interface addresses.
 
-   This change affects the reception of OSPF packets (see Section 8.2 of
-   [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), the lookup of neighbors (<a href="#section-10">Section 10</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), and the
-   reception of Hello packets (Section 10.5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
+   This change affects the reception of OSPF packets (see <a href="rfc2328.html#section-8.2">Section 8.2</a> of
+   [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), the lookup of neighbors (<a href="rfc2328.html#section-10">Section 10</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), and the
+   reception of Hello packets (<a href="rfc2328.html#section-10.5">Section 10.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
 
    The Router ID of 0.0.0.0 is reserved and SHOULD NOT be used.
 
@@ -1899,7 +1899,7 @@ Table of Contents
 
    When going from IPv4 to IPv6, the basic OSPF mechanisms remain
    unchanged from those documented in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  These mechanisms are
-   briefly outlined in Section 4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  Both IPv6 and IPv4 have a
+   briefly outlined in <a href="rfc2328.html#section-4">Section 4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  Both IPv6 and IPv4 have a
    link-state database composed of LSAs and synchronized between
    adjacent routers.  Initial synchronization is performed through the
    Database Exchange process, which includes the exchange of Database
@@ -1917,7 +1917,7 @@ Table of Contents
    In particular, the following IPv4 OSPF functionality described in
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] remains completely unchanged for IPv6:
 
-   o  Both IPv4 and IPv6 use OSPF packet types described in Section 4.3
+   o  Both IPv4 and IPv6 use OSPF packet types described in <a href="rfc2328.html#section-4.3">Section 4.3</a>
       of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], namely: Hello, Database Description, Link State
       Request, Link State Update, and Link State Acknowledgment packets.
       While in some cases (e.g., Hello packets) their format has changed
@@ -1944,7 +1944,7 @@ Table of Contents
       selection and establishment of adjacencies, remain the same.  This
       includes election of the Designated Router and Backup Designated
       Router on broadcast and NBMA links.  These mechanisms are
-      described in Sections <a href="#section-7">7</a>, <a href="#section-7.1">7.1</a>, <a href="#section-7.2">7.2</a>, <a href="#section-7.3">7.3</a>, <a href="#section-7.4">7.4</a>, and <a href="#section-7.5">7.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+      described in Sections <a href="rfc2328.html#section-7">7</a>, <a href="rfc2328.html#section-7.1">7.1</a>, <a href="rfc2328.html#section-7.2">7.2</a>, <a href="rfc2328.html#section-7.3">7.3</a>, <a href="rfc2328.html#section-7.4">7.4</a>, and <a href="rfc2328.html#section-7.5">7.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    o  The link types (or equivalently, interface types) supported by
       OSPF remain unchanged, namely: point-to-point, broadcast, NBMA,
@@ -1953,15 +1953,15 @@ Table of Contents
    o  The interface state machine, including the list of OSPF interface
       states and events, and the Designated Router and Backup Designated
       Router election algorithm remain unchanged.  These are described
-      in Sections <a href="#section-9.1">9.1</a>, <a href="#section-9.2">9.2</a>, <a href="#section-9.3">9.3</a>, and <a href="#section-9.4">9.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+      in Sections <a href="rfc2328.html#section-9.1">9.1</a>, <a href="rfc2328.html#section-9.2">9.2</a>, <a href="rfc2328.html#section-9.3">9.3</a>, and <a href="rfc2328.html#section-9.4">9.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    o  The neighbor state machine, including the list of OSPF neighbor
       states and events, remains unchanged.  The neighbor state machine
-      is described in Sections <a href="#section-10.1">10.1</a>, <a href="#section-10.2">10.2</a>, <a href="#section-10.3">10.3</a>, and <a href="#section-10.4">10.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+      is described in Sections <a href="rfc2328.html#section-10.1">10.1</a>, <a href="rfc2328.html#section-10.2">10.2</a>, <a href="rfc2328.html#section-10.3">10.3</a>, and <a href="rfc2328.html#section-10.4">10.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    o  Aging of the link-state database, as well as flushing LSAs from
       the routing domain through the premature aging process, remains
-      unchanged from the description in Sections <a href="#section-14">14</a> and <a href="#section-14.1">14.1</a> of
+      unchanged from the description in Sections <a href="rfc2328.html#section-14">14</a> and <a href="rfc2328.html#section-14.1">14.1</a> of
       [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    However, some OSPF protocol mechanisms have changed as previously
@@ -1977,7 +1977,7 @@ Table of Contents
    The major OSPF data structures are the same for both IPv4 and IPv6:
    areas, interfaces, neighbors, the link-state database, and the
    routing table.  The top-level data structures for IPv6 remain those
-   listed in Section 5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the following modifications:
+   listed in <a href="rfc2328.html#section-5">Section 5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the following modifications:
 
    o  All LSAs with known LS type and AS flooding scope appear in the
       top-level data structure, instead of belonging to a specific area
@@ -1997,7 +1997,7 @@ Table of Contents
 <span class="h4"><a class="selflink" id="section-4.1.1" href="#section-4.1.1">4.1.1</a>.  The Area Data Structure</span>
 
    The IPv6 area data structure contains all elements defined for IPv4
-   areas in Section 6 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  In addition, all LSAs of known type
+   areas in <a href="rfc2328.html#section-6">Section 6</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  In addition, all LSAs of known type
    that have area flooding scope are contained in the IPv6 area data
    structure.  This always includes the following LSA types: router-
    LSAs, network-LSAs, inter-area-prefix-LSAs, inter-area-router-LSAs,
@@ -2010,7 +2010,7 @@ Table of Contents
 
    In OSPF for IPv6, an interface connects a router to a link.  The IPv6
    interface structure modifies the IPv4 interface structure (as defined
-   in Section 9 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) as follows:
+   in <a href="rfc2328.html#section-9">Section 9</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) as follows:
 
    Interface ID
       Every interface is assigned an Interface ID, which uniquely
@@ -2073,10 +2073,10 @@ Table of Contents
    Authentication key are not associated with IPv6 OSPF interfaces.
 
    Interface states, events, and the interface state machine remain
-   unchanged from IPv4 as documented in Sections <a href="#section-9.1">9.1</a>, <a href="#section-9.2">9.2</a>, and <a href="#section-9.3">9.3</a> of
+   unchanged from IPv4 as documented in Sections <a href="rfc2328.html#section-9.1">9.1</a>, <a href="rfc2328.html#section-9.2">9.2</a>, and <a href="rfc2328.html#section-9.3">9.3</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively.  The Designated Router and Backup Designated
    Router election algorithm also remains unchanged from the IPv4
-   election in Section 9.4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   election in <a href="rfc2328.html#section-9.4">Section 9.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
 <span class="h4"><a class="selflink" id="section-4.1.3" href="#section-4.1.3">4.1.3</a>.  The Neighbor Data Structure</span>
 
@@ -2085,7 +2085,7 @@ Table of Contents
    adjacency between two routers when such an adjacency becomes
    necessary.  Each neighbor structure is bound to a single OSPF
    interface.  The differences between the IPv6 neighbor structure and
-   the neighbor structure defined for IPv4 in Section 10 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]
+   the neighbor structure defined for IPv4 in <a href="rfc2328.html#section-10">Section 10</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]
    are:
 
    Neighbor&#x27;s Interface ID
@@ -2117,9 +2117,9 @@ Table of Contents
       as a Router ID instead of as an IP address.
 
    Neighbor states, events, and the neighbor state machine remain
-   unchanged from IPv4 as documented in Sections <a href="#section-10.1">10.1</a>, <a href="#section-10.2">10.2</a>, and <a href="#section-10.3">10.3</a> of
+   unchanged from IPv4 as documented in Sections <a href="rfc2328.html#section-10.1">10.1</a>, <a href="rfc2328.html#section-10.2">10.2</a>, and <a href="rfc2328.html#section-10.3">10.3</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively.  The decision as to which adjacencies to form
-   also remains unchanged from the IPv4 logic documented in Section 10.4
+   also remains unchanged from the IPv4 logic documented in <a href="rfc2328.html#section-10.4">Section 10.4</a>
    of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
 <span class="h3"><a class="selflink" id="section-4.2" href="#section-4.2">4.2</a>.  Protocol Packet Processing</span>
@@ -2180,7 +2180,7 @@ Table of Contents
 
    Selection of OSPF routing protocol packets&#x27; IPv6 source and
    destination addresses is performed identically to the IPv4 logic in
-   Section 8.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The IPv6 destination address is chosen from
+   <a href="rfc2328.html#section-8.1">Section 8.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The IPv6 destination address is chosen from
    among the addresses AllSPFRouters, AllDRouters, and the Neighbor IP
    address associated with the other end of the adjacency (which in
    IPv6, for all links except virtual links, is an IPv6 link-local
@@ -2188,7 +2188,7 @@ Table of Contents
 
    The sending of Link State Request packets and Link State
    Acknowledgment packets remains unchanged from the IPv4 procedures
-   documented in Sections <a href="#section-10.9">10.9</a> and <a href="#section-13.5">13.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively.
+   documented in Sections <a href="rfc2328.html#section-10.9">10.9</a> and <a href="rfc2328.html#section-13.5">13.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively.
    Sending Hello packets is documented in <a href="#section-4.2.1.1">Section 4.2.1.1</a>, and the
    sending of Database Description packets in <a href="#section-4.2.1.2">Section 4.2.1.2</a>.  The
    sending of Link State Update packets is documented in <a href="#section-4.5.2">Section 4.5.2</a>.
@@ -2196,7 +2196,7 @@ Table of Contents
 <span class="h5"><a class="selflink" id="section-4.2.1.1" href="#section-4.2.1.1">4.2.1.1</a>.  Sending Hello Packets</span>
 
    IPv6 changes the way OSPF Hello packets are sent in the following
-   ways (compare to Section 9.5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]):
+   ways (compare to <a href="rfc2328.html#section-9.5">Section 9.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]):
 
    o  Before the Hello packet is sent on an interface, the interface&#x27;s
       Interface ID MUST be copied into the Hello packet.
@@ -2231,11 +2231,11 @@ Table of Contents
       field should be cleared.
 
    Sending Hello packets on NBMA networks proceeds for IPv6 in exactly
-   the same way as for IPv4, as documented in Section 9.5.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   the same way as for IPv4, as documented in <a href="rfc2328.html#section-9.5.1">Section 9.5.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
 <span class="h5"><a class="selflink" id="section-4.2.1.2" href="#section-4.2.1.2">4.2.1.2</a>.  Sending Database Description Packets</span>
 
-   The sending of Database Description packets differs from Section 10.8
+   The sending of Database Description packets differs from <a href="rfc2328.html#section-10.8">Section 10.8</a>
    of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] in the following ways:
 
    o  The Options field within Database Description packets has moved
@@ -2334,7 +2334,7 @@ Table of Contents
 
    o  Packets whose IPv6 destination is AllDRouters should only be
       accepted if the state of the receiving OSPFv3 interface is DR or
-      Backup (see <a href="#section-9.1">Section 9.1</a> [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
+      Backup (see <a href="rfc2328.html#section-9.1">Section 9.1</a> [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
 
    After header processing, the packet is further processed according to
    its OSPF packet type.  OSPF packet types and functions are the same
@@ -2350,8 +2350,8 @@ Table of Contents
 
    The receive processing of Database Description packets, Link State
    Request packets, and Link State Acknowledgment packets is almost
-   identical to the IPv4 procedures documented in Sections <a href="#section-10.6">10.6</a>, <a href="#section-10.7">10.7</a>,
-   and 13.7 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively with the exceptions noted below.
+   identical to the IPv4 procedures documented in Sections <a href="rfc2328.html#section-10.6">10.6</a>, <a href="rfc2328.html#section-10.7">10.7</a>,
+   and <a href="rfc2328.html#section-13.7">13.7</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] respectively with the exceptions noted below.
 
    o  LSAs with unknown LS types in Database Description packets that
       have an acceptable flooding scope are processed the same as LSAs
@@ -2364,7 +2364,7 @@ Table of Contents
 
 <span class="h5"><a class="selflink" id="section-4.2.2.1" href="#section-4.2.2.1">4.2.2.1</a>.  Receiving Hello Packets</span>
 
-   The receive processing of Hello packets differs from Section 10.5 of
+   The receive processing of Hello packets differs from <a href="rfc2328.html#section-10.5">Section 10.5</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] in the following ways:
 
    o  On all link types (e.g., broadcast, NBMA, point-to-point, etc.),
@@ -2389,7 +2389,7 @@ Table of Contents
 
 <span class="h3"><a class="selflink" id="section-4.3" href="#section-4.3">4.3</a>.  The Routing table Structure</span>
 
-   The routing table used by OSPF for IPv4 is defined in Section 11 of
+   The routing table used by OSPF for IPv4 is defined in <a href="rfc2328.html#section-11">Section 11</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  For IPv6, there are analogous routing table entries: there
    are routing table entries for IPv6 address prefixes and also for AS
    boundary routers.  The latter routing table entries are only used to
@@ -2418,7 +2418,7 @@ Table of Contents
       to IP prefixes advertised for the transit link in intra-area-
       prefix-LSAs.
 
-   The fields in the IPv4 OSPF routing table (see Section 11 of
+   The fields in the IPv4 OSPF routing table (see <a href="rfc2328.html#section-11">Section 11</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) remain valid for IPv6: optional capabilities (routers
    only), path type, cost, type 2 cost, link state origin, and for each
    of the equal cost paths to the destination, the next-hop and
@@ -2466,8 +2466,8 @@ Table of Contents
    LSA header.  However, the contents of this 20-byte header have
    changed in IPv6.  The LS age, Advertising Router, LS Sequence Number,
    LS checksum, and length fields within the LSA header remain
-   unchanged, as documented in Sections <a href="#section-12.1.1">12.1.1</a>, <a href="#section-12.1.5">12.1.5</a>, <a href="#section-12.1.6">12.1.6</a>, <a href="#section-12.1.7">12.1.7</a>,
-   and A.4.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], respectively.  However, the following fields
+   unchanged, as documented in Sections <a href="rfc2328.html#section-12.1.1">12.1.1</a>, <a href="rfc2328.html#section-12.1.5">12.1.5</a>, <a href="rfc2328.html#section-12.1.6">12.1.6</a>, <a href="rfc2328.html#section-12.1.7">12.1.7</a>,
+   and <a href="rfc2328.html#appendix-A.4.1">A.4.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], respectively.  However, the following fields
    have changed for IPv6:
 
    Options
@@ -2516,7 +2516,7 @@ Table of Contents
    of their LS type, Link State ID, and Advertising Router fields.
    Given two instances of an LSA, the most recent instance is determined
    by examining the LSAs&#x27; LS sequence number, using LS checksum and LS
-   age as tiebreakers (see Section 13.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
+   age as tiebreakers (see <a href="rfc2328.html#section-13.1">Section 13.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).
 
    In IPv6, the link-state database is split across three separate data
    structures.  LSAs with AS flooding scope are contained within the
@@ -2559,7 +2559,7 @@ Table of Contents
    database and flooded on the appropriate interfaces.
 
    The list of events causing LSAs to be reoriginated for IPv4 is given
-   in Section 12.4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The following events and/or actions are
+   in <a href="rfc2328.html#section-12.4">Section 12.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The following events and/or actions are
    added for IPv6:
 
    o  The state or interface ID of one of the router&#x27;s interfaces
@@ -2706,7 +2706,7 @@ Table of Contents
    State ID fields.
 
    To the left of the Options field, the router capability bits V, E,
-   and B should be set according to Section 12.4.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   and B should be set according to <a href="rfc2328.html#section-12.4.1">Section 12.4.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    Each of the router&#x27;s interfaces to the area is then described by
    appending &quot;link descriptions&quot; to the router-LSA.  Each link
@@ -2813,7 +2813,7 @@ Table of Contents
    all routers on the link with which it is fully adjacent.
 
    The procedure for originating network-LSAs in IPv6 is the same as the
-   IPv4 procedure documented in Section 12.4.2 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
+   IPv4 procedure documented in <a href="rfc2328.html#section-12.4.2">Section 12.4.2</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
    following exceptions:
 
    o  An IPv6 network-LSA&#x27;s Link State ID is set to the Interface ID of
@@ -2865,7 +2865,7 @@ Table of Contents
    the Autonomous System.
 
    The procedure for originating inter-area-prefix-LSAs in IPv6 is the
-   same as the IPv4 procedure documented in Sections <a href="#section-12.4.3">12.4.3</a> and <a href="#section-12.4.3.1">12.4.3.1</a>
+   same as the IPv4 procedure documented in Sections <a href="rfc2328.html#section-12.4.3">12.4.3</a> and <a href="rfc2328.html#section-12.4.3.1">12.4.3.1</a>
    of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the following exceptions:
 
    o  The Link State ID of an inter-area-prefix-LSA has lost all of its
@@ -2923,7 +2923,7 @@ Table of Contents
    the Autonomous System.
 
    The procedure for originating inter-area-router-LSAs in IPv6 is the
-   same as the IPv4 procedure documented in Section 12.4.3 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>],
+   same as the IPv4 procedure documented in <a href="rfc2328.html#section-12.4.3">Section 12.4.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>],
    with the following exceptions:
 
    o  The Link State ID of an inter-area-router-LSA is no longer the
@@ -2972,7 +2972,7 @@ Table of Contents
    a path to a prefix external to the Autonomous System.
 
    The procedure for originating AS-external-LSAs in IPv6 is the same as
-   the IPv4 procedure documented in Section 12.4.4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
+   the IPv4 procedure documented in <a href="rfc2328.html#section-12.4.4">Section 12.4.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
    following exceptions:
 
    o  The Link State ID of an AS-external-LSA has lost all of its
@@ -3415,21 +3415,21 @@ Table of Contents
 <span class="h3"><a class="selflink" id="section-4.5" href="#section-4.5">4.5</a>.  Flooding</span>
 
    Most of the flooding algorithm remains unchanged from the IPv4
-   flooding mechanisms described in Section 13 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  In
+   flooding mechanisms described in <a href="rfc2328.html#section-13">Section 13</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  In
    particular, the protocol processes for determining which LSA instance
-   is newer (Section 13.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), responding to updates of self-
-   originated LSAs (Section 13.4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), sending Link State
-   Acknowledgment packets (Section 13.5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), retransmitting
-   LSAs (Section 13.6 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), and receiving Link State
-   Acknowledgment packets (Section 13.7 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), are exactly the
+   is newer (<a href="rfc2328.html#section-13.1">Section 13.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), responding to updates of self-
+   originated LSAs (<a href="rfc2328.html#section-13.4">Section 13.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), sending Link State
+   Acknowledgment packets (<a href="rfc2328.html#section-13.5">Section 13.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), retransmitting
+   LSAs (<a href="rfc2328.html#section-13.6">Section 13.6</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), and receiving Link State
+   Acknowledgment packets (<a href="rfc2328.html#section-13.7">Section 13.7</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]), are exactly the
    same for IPv6 and IPv4.
 
    However, the addition of flooding scope and unknown LSA type handling
    (see <a href="#appendix-A.4.2.1">Appendix A.4.2.1</a>) has caused some changes in the OSPF flooding
-   algorithm: the reception of Link State Updates (Section 13 in
-   [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) and the sending of Link State Updates (<a href="#section-13.3">Section 13.3</a> of
+   algorithm: the reception of Link State Updates (<a href="rfc2328.html#section-13">Section 13</a> in
+   [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) and the sending of Link State Updates (<a href="rfc2328.html#section-13.3">Section 13.3</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) must take into account the LSA&#x27;s scope and U-bit setting.
-   Also, installation of LSAs into the OSPF database (Section 13.2 of
+   Also, installation of LSAs into the OSPF database (<a href="rfc2328.html#section-13.2">Section 13.2</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) causes different events in IPv6, due to the reorganization
    of LSA types and the IPv6 LSA contents.  These changes are described
    in detail below.
@@ -3448,7 +3448,7 @@ Table of Contents
 
 
    State Update packet is examined.  In IPv4, eight steps are executed
-   for each LSA, as described in Section 13 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  For IPv6, all
+   for each LSA, as described in <a href="rfc2328.html#section-13">Section 13</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  For IPv6, all
    the steps are the same, except that Steps 2 and 3 are modified as
    follows:
 
@@ -3466,15 +3466,15 @@ Table of Contents
             the Link State Update packet.
 
    Steps 5b (sending Link State Update packets) and 5d (installing LSAs
-   in the link-state database) in Section 13 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] are also
+   in the link-state database) in <a href="rfc2328.html#section-13">Section 13</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] are also
    somewhat different for IPv6, as described in Sections <a href="#section-4.5.2">4.5.2</a> and <a href="#section-4.5.3">4.5.3</a>
    below.
 
 <span class="h4"><a class="selflink" id="section-4.5.2" href="#section-4.5.2">4.5.2</a>.  Sending Link State Update Packets</span>
 
-   The sending of Link State Update packets is described in Section 13.3
+   The sending of Link State Update packets is described in <a href="rfc2328.html#section-13.3">Section 13.3</a>
    of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  For IPv4 and IPv6, the steps for sending a Link State
-   Update packet are the same (steps 1 through 5 of Section 13.3 in
+   Update packet are the same (steps 1 through 5 of <a href="rfc2328.html#section-13.3">Section 13.3</a> in
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  However, the list of eligible interfaces on which to
    flood the LSA is different.  For IPv6, the eligible interfaces are
    selected based on the following factors:
@@ -3533,8 +3533,8 @@ Table of Contents
       flooding scope the same as in Case 1 above.
 
    A further decision must sometimes be made before adding an LSA to a
-   given neighbor&#x27;s link-state retransmission list (Step 1d in <a href="#section-13.3">Section</a>
-   <a href="#section-13.3">13.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  If the LS type is recognized by the router but
+   given neighbor&#x27;s link-state retransmission list (Step 1d in <a href="rfc2328.html#section-13.3">Section</a>
+   <a href="rfc2328.html#section-13.3">13.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  If the LS type is recognized by the router but
    not by the neighbor (as can be determined by examining the Options
    field that the neighbor advertised in its Database Description
    packet) and the LSA&#x27;s U-bit is set to 0, then the LSA should be added
@@ -3578,7 +3578,7 @@ Table of Contents
 
    When storing the LSA into the link-state database, a check must be
    made to see whether the LSA&#x27;s contents have changed.  Changes in
-   contents are indicated exactly as in Section 13.2 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  When
+   contents are indicated exactly as in <a href="rfc2328.html#section-13.2">Section 13.2</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  When
    an LSA&#x27;s contents have been changed, the following parts of the
    routing table must be recalculated, based on the LSA&#x27;s LS type:
 
@@ -3588,13 +3588,13 @@ Table of Contents
 
    Inter-Area-Prefix-LSAs and Inter-Area-Router-LSAs
       The best route to the destination described by the LSA must be
-      recalculated (see Section 16.5 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  If this destination
+      recalculated (see <a href="rfc2328.html#section-16.5">Section 16.5</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  If this destination
       is an AS boundary router, it may also be necessary to re-examine
       all the AS-external-LSAs.
 
    AS-external-LSAs and NSSA-LSAs
       The best route to the destination described by the AS-external-LSA
-      or NSSA-LSA must be recalculated (see Section 16.6 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and
+      or NSSA-LSA must be recalculated (see <a href="rfc2328.html#section-16.6">Section 16.6</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and
       Section 2.0 in [<a href="#ref-NSSA" title="&quot;The OSPF Not-So-Stubby Area (NSSA) Option&quot;">NSSA</a>]).
 
    As in IPv4, any old instance of the LSA must be removed from the
@@ -3617,7 +3617,7 @@ Table of Contents
 
 <span class="h3"><a class="selflink" id="section-4.7" href="#section-4.7">4.7</a>.  Virtual Links</span>
 
-   OSPF virtual links for IPv4 are described in Section 15 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   OSPF virtual links for IPv4 are described in <a href="rfc2328.html#section-15">Section 15</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
    Virtual links are the same in IPv6, with the following exceptions:
 
    o  LSAs having AS flooding scope are never flooded over virtual
@@ -3648,7 +3648,7 @@ Table of Contents
 
    The IPv6 OSPF routing calculation proceeds along the same lines as
    the IPv4 OSPF routing calculation, following the five steps specified
-   by Section 16 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  High-level differences between the IPv6
+   by <a href="rfc2328.html#section-16">Section 16</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  High-level differences between the IPv6
    and IPv4 calculations include:
 
    o  Prefix information has been removed from router-LSAs and network-
@@ -3685,13 +3685,13 @@ Table of Contents
    area-prefix-LSAs, inter-area-prefix-LSAs, and inter-area-router-LSAs,
    as described in <a href="#section-4.8.3">Section 4.8.3</a>.
 
-   Events generated as a result of routing table changes (Section 16.7
-   of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) and the equal-cost multipath logic (<a href="#section-16.8">Section 16.8</a> of
+   Events generated as a result of routing table changes (<a href="rfc2328.html#section-16.7">Section 16.7</a>
+   of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) and the equal-cost multipath logic (<a href="rfc2328.html#section-16.8">Section 16.8</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) are identical for both IPv4 and IPv6.
 
 <span class="h4"><a class="selflink" id="section-4.8.1" href="#section-4.8.1">4.8.1</a>.  Calculating the Shortest-Path Tree for an Area</span>
 
-   The IPv4 shortest-path calculation is contained in Section 16.1 of
+   The IPv4 shortest-path calculation is contained in <a href="rfc2328.html#section-16.1">Section 16.1</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The graph used by the shortest-path tree calculation is
    identical for both IPv4 and IPv6.  The graph&#x27;s vertices are routers
    and transit links, represented by router-LSAs and network-LSAs
@@ -3700,14 +3700,14 @@ Table of Contents
    and OSPF Router ID.  Both routers and transit links have associated
    routing table entries within the area (see <a href="#section-4.3">Section 4.3</a>).
 
-   Section 16.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] splits up the shortest-path calculations
+   <a href="rfc2328.html#section-16.1">Section 16.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] splits up the shortest-path calculations
    into two stages.  First, the Dijkstra calculation is performed, and
    then the stub links are added onto the tree as leaves.  The IPv6
    calculation maintains this split.
 
    The Dijkstra calculation for IPv6 is identical to that specified for
    IPv4, with the following exceptions (referencing the steps from the
-   Dijkstra calculation as described in Section 16.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]):
+   Dijkstra calculation as described in <a href="rfc2328.html#section-16.1">Section 16.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]):
 
    o  The Vertex ID for a router is the OSPF Router ID.  The Vertex ID
       for a transit network is a combination of the Interface ID and
@@ -3759,7 +3759,7 @@ Table of Contents
       added to the per-area routing table.
 
    The next stage of the shortest-path calculation proceeds similarly to
-   the two steps of the second stage of Section 16.1 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   the two steps of the second stage of <a href="rfc2328.html#section-16.1">Section 16.1</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
    However, instead of examining the stub links within router-LSAs, the
    list of the area&#x27;s intra-area-prefix-LSAs is examined.  A prefix
    advertisement whose NU-bit is set SHOULD NOT be included in the
@@ -3790,7 +3790,7 @@ Table of Contents
 
    In IPv6, the calculation of the next-hop&#x27;s IPv6 address (which will
    be a link-local address) proceeds along the same lines as the IPv4
-   next-hop calculation (see Section 16.1.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  However,
+   next-hop calculation (see <a href="rfc2328.html#section-16.1.1">Section 16.1.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  However,
    there are some differences.  When calculating the next-hop IPv6
    address for a router (call it Router X) that shares a link with the
    calculating router, the calculating router assigns the next-hop IPv6
@@ -3805,7 +3805,7 @@ Table of Contents
    Additionally, when calculating routes for the area&#x27;s intra-area-
    prefix-LSAs, the parent vertex can be either a router-LSA or network-
    LSA.  This is in contrast to the second stage of the OSPFv2 intra-
-   area SPF (Section 16.1 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) where the parent vertex is always
+   area SPF (<a href="rfc2328.html#section-16.1">Section 16.1</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) where the parent vertex is always
    a router-LSA.  In the case where the intra-area-prefix-LSA&#x27;s
    referenced LSA is a directly connected network-LSA, the prefixes are
    also considered to be directly connected.  In this case, the next hop
@@ -3814,7 +3814,7 @@ Table of Contents
 <span class="h4"><a class="selflink" id="section-4.8.3" href="#section-4.8.3">4.8.3</a>.  Calculating the Inter-Area Routes</span>
 
    Calculation of inter-area routes for IPv6 proceeds along the same
-   lines as the IPv4 calculation in Section 16.2 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
+   lines as the IPv4 calculation in <a href="rfc2328.html#section-16.2">Section 16.2</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], with the
    following modifications:
 
    o  The names of the Type 3 summary-LSAs and Type 4 summary-LSAs have
@@ -3840,21 +3840,21 @@ Table of Contents
 
 
    When a single inter-area-prefix-LSA or inter-area-router-LSA has
-   changed, the incremental calculations outlined in Section 16.5 of
+   changed, the incremental calculations outlined in <a href="rfc2328.html#section-16.5">Section 16.5</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] can be performed instead of recalculating the entire routing
    table.
 
 <span class="h4"><a class="selflink" id="section-4.8.4" href="#section-4.8.4">4.8.4</a>.  Examining Transit Areas&#x27; Summary-LSAs</span>
 
    Examination of transit areas&#x27; summary-LSAs in IPv6 proceeds along the
-   same lines as the IPv4 calculation in Section 16.3 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>],
+   same lines as the IPv4 calculation in <a href="rfc2328.html#section-16.3">Section 16.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>],
    modified in the same way as the IPv6 inter-area route calculation in
    <a href="#section-4.8.3">Section 4.8.3</a>.
 
 <span class="h4"><a class="selflink" id="section-4.8.5" href="#section-4.8.5">4.8.5</a>.  Calculating AS External and NSSA Routes</span>
 
    The IPv6 AS external route calculation proceeds along the same lines
-   as the IPv4 calculation in Section 16.4 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and <a href="#section-2.5">Section 2.5</a>
+   as the IPv4 calculation in <a href="rfc2328.html#section-16.4">Section 16.4</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and <a href="#section-2.5">Section 2.5</a>
    of [<a href="#ref-NSSA" title="&quot;The OSPF Not-So-Stubby Area (NSSA) Option&quot;">NSSA</a>], with the following exceptions:
 
    o  The Link State ID of the AS-external-LSA and NSSA-LSA types no
@@ -3879,7 +3879,7 @@ Table of Contents
       configuration parameter.  Refer to <a href="#appendix-C.1">Appendix C.1</a>.
 
    When a single AS-external-LSA or NSSA-LSA has changed, the
-   incremental calculations outlined in Section 16.6 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] can be
+   incremental calculations outlined in <a href="rfc2328.html#section-16.6">Section 16.6</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] can be
    performed instead of recalculating the entire routing table.
 
 <span class="h3"><a class="selflink" id="section-4.9" href="#section-4.9">4.9</a>.  Multiple Interfaces to a Single Link</span>
@@ -3974,8 +3974,8 @@ Table of Contents
       is directly connected to the root vertex is being examined, all of
       the multiple interfaces to the link of adjacent router-LSAs must
       be used in the next-hop calculation.
-      This can be accomplished during the back link check (see <a href="#section-16.1">Section</a>
-      <a href="#section-16.1">16.1</a>, Step 2 (B), in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) by examining each link of the
+      This can be accomplished during the back link check (see <a href="rfc2328.html#section-16.1">Section</a>
+      <a href="rfc2328.html#section-16.1">16.1</a>, Step 2 (B), in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) by examining each link of the
       router-LSA and making a list of the links that point to the
       network-LSA.  The Interface IDs for links in this list are then
       used to find the corresponding link-LSAs and the link-local
@@ -4355,9 +4355,9 @@ Table of Contents
    the OSPF routing domain.  The OSPF Options field is contained in OSPF
    Hello packets, Database Description packets, and OSPF LSAs.
 
-   OSPF packet formats are detailed in Section A.3.
+   OSPF packet formats are detailed in <a href="#appendix-A.3">Section A.3</a>.
 
-   A description of OSPF LSAs appears in Section A.4.  This section
+   A description of OSPF LSAs appears in <a href="#appendix-A.4">Section A.4</a>.  This section
    describes how IPv6 address prefixes are represented within LSAs,
    details the standard LSA header, and then provides formats for each
    of the specific LSA types.
@@ -4416,7 +4416,7 @@ Table of Contents
    o  OSPF is IP protocol 89.  This number SHOULD be inserted in the
       Next Header field of the encapsulating IPv6 header.
 
-   o  The OSPFv2 specification (Appendix A.1 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) indicates that
+   o  The OSPFv2 specification (<a href="rfc2328.html#appendix-A.1">Appendix A.1</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]) indicates that
       OSPF protocol packets are sent with IP precedence set to
       Internetwork Control (B&#x27;110&#x27;) [<a href="#ref-IPV4" title="&quot;Internet Protocol&quot;">IPV4</a>].  If routers in the OSPF
       routing domain map their IPv6 Traffic Class octet to the
@@ -4479,7 +4479,7 @@ Table of Contents
 
    E-bit
       This bit describes the way AS-external-LSAs are flooded, as
-      described in Sections <a href="#section-3.6">3.6</a>, <a href="#section-9.5">9.5</a>, <a href="#section-10.8">10.8</a>, and <a href="#section-12.1.2">12.1.2</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+      described in Sections <a href="rfc2328.html#section-3.6">3.6</a>, <a href="rfc2328.html#section-9.5">9.5</a>, <a href="rfc2328.html#section-10.8">10.8</a>, and <a href="rfc2328.html#section-12.1.2">12.1.2</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    x-Bit
       This bit was previously used by MOSPF (see [<a href="#ref-MOSPF" title="&quot;Multicast Extensions to OSPF&quot;">MOSPF</a>]), which has
@@ -4526,7 +4526,7 @@ Table of Contents
    All OSPF packet types (other than the OSPF Hello packets) deal with
    lists of LSAs.  For example, Link State Update packets implement the
    flooding of LSAs throughout the OSPF routing domain.  The format of
-   LSAs is described in Section A.4.
+   LSAs is described in <a href="#appendix-A.4">Section A.4</a>.
 
    The receive processing of OSPF packets is detailed in <a href="#section-4.2.2">Section 4.2.2</a>.
    The sending of OSPF packets is explained in <a href="#section-4.2.1">Section 4.2.1</a>.
@@ -4692,7 +4692,7 @@ Table of Contents
 
    Options
       The optional capabilities supported by the router, as documented
-      in Section A.2.
+      in <a href="#appendix-A.2">Section A.2</a>.
 
    HelloInterval
       The number of seconds between this router&#x27;s Hello packets.
@@ -4770,13 +4770,13 @@ Table of Contents
    the Link State Request packet and the Link State Acknowledgment
    packet.  The main part of all three is a list of items, each item
    describing a piece of the link-state database.  The sending of
-   Database Description packets is documented in Section 10.8 of
+   Database Description packets is documented in <a href="rfc2328.html#section-10.8">Section 10.8</a> of
    [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The reception of Database Description packets is
-   documented in Section 10.6 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   documented in <a href="rfc2328.html#section-10.6">Section 10.6</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    Options
       The optional capabilities supported by the router, as documented
-      in Section A.2.
+      in <a href="#appendix-A.2">Section A.2</a>.
 
    Interface MTU
       The size in bytes of the largest IPv6 datagram that can be sent
@@ -4836,9 +4836,9 @@ Table of Contents
    Request packet itself.  The router may receive even more recent LSA
    instances in response.
 
-   The sending of Link State Request packets is documented in <a href="#section-10.9">Section</a>
-   <a href="#section-10.9">10.9</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The reception of Link State Request packets is
-   documented in Section 10.7 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   The sending of Link State Request packets is documented in <a href="rfc2328.html#section-10.9">Section</a>
+   <a href="rfc2328.html#section-10.9">10.9</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The reception of Link State Request packets is
+   documented in <a href="rfc2328.html#section-10.7">Section 10.7</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
 
 
@@ -4940,15 +4940,15 @@ Table of Contents
    implicitly acknowledged.  Explicit acknowledgment is accomplished
    through the sending and receiving of Link State Acknowledgment
    packets.  The sending of Link State Acknowledgment packets is
-   documented in Section 13.5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The reception of Link State
-   Acknowledgment packets is documented in Section 13.7 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
+   documented in <a href="rfc2328.html#section-13.5">Section 13.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The reception of Link State
+   Acknowledgment packets is documented in <a href="rfc2328.html#section-13.7">Section 13.7</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].
 
    Multiple LSAs MAY be acknowledged in a single Link State
    Acknowledgment packet.  Depending on the state of the sending
    interface and the sender of the corresponding Link State Update
    packet, a Link State Acknowledgment packet is sent to the multicast
    address AllSPFRouters, the multicast address AllDRouters, or to a
-   neighbor&#x27;s unicast address (see Section 13.5 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for
+   neighbor&#x27;s unicast address (see <a href="rfc2328.html#section-13.5">Section 13.5</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for
    details).
 
 
@@ -5022,8 +5022,8 @@ Table of Contents
    state database.
 
    From the link-state database, each router constructs a shortest-path
-   tree with itself as root.  This yields a routing table (see <a href="#section-11">Section</a>
-   <a href="#section-11">11</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  For details on the routing table build process, see
+   tree with itself as root.  This yields a routing table (see <a href="rfc2328.html#section-11">Section</a>
+   <a href="rfc2328.html#section-11">11</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  For details on the routing table build process, see
    <a href="#section-4.8">Section 4.8</a>.
 
 <span class="h4"><a class="selflink" id="appendix-A.4.1" href="#appendix-A.4.1">A.4.1</a>.  IPv6 Prefix Representation</span>
@@ -5166,13 +5166,13 @@ Table of Contents
    LS sequence number
       Successive instances of an LSA are given successive LS sequence
       numbers.  The sequence number can be used to detect old or
-      duplicate LSA instances.  See Section 12.1.6 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for more
+      duplicate LSA instances.  See <a href="rfc2328.html#section-12.1.6">Section 12.1.6</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for more
       details.
 
    LS checksum
       The Fletcher checksum of the complete contents of the LSA,
       including the LSA header but excluding the LS age field.  See
-      Section 12.1.7 in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for more details.
+      <a href="rfc2328.html#section-12.1.7">Section 12.1.7</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for more details.
 
 
 
@@ -5495,7 +5495,7 @@ Table of Contents
 
    Inter-area-prefix-LSAs have LS type equal to 0x2003.  These LSAs are
    the IPv6 equivalent of OSPF for IPv4&#x27;s type 3 summary-LSAs (see
-   Section 12.4.3 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Originated by area border routers, they
+   <a href="rfc2328.html#section-12.4.3">Section 12.4.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Originated by area border routers, they
    describe routes to IPv6 address prefixes that belong to other areas.
    A separate inter-area-prefix-LSA is originated for each IPv6 address
    prefix.  For details concerning the construction of inter-area-
@@ -5557,10 +5557,10 @@ Table of Contents
 
    Inter-area-router-LSAs have LS type equal to 0x2004.  These LSAs are
    the IPv6 equivalent of OSPF for IPv4&#x27;s type 4 summary-LSAs (see
-   Section 12.4.3 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Originated by area border routers, they
+   <a href="rfc2328.html#section-12.4.3">Section 12.4.3</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Originated by area border routers, they
    describe routes to AS boundary routers in other areas.  To see why it
-   is necessary to advertise the location of each ASBR, consult <a href="#section-16.4">Section</a>
-   <a href="#section-16.4">16.4</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  Each LSA describes a route to a single router.
+   is necessary to advertise the location of each ASBR, consult <a href="rfc2328.html#section-16.4">Section</a>
+   <a href="rfc2328.html#section-16.4">16.4</a> in [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  Each LSA describes a route to a single router.
    For details concerning the construction of inter-area-router-LSAs,
    see <a href="#section-4.4.3.5">Section 4.4.3.5</a>.
 
@@ -5981,8 +5981,8 @@ Table of Contents
 
 <span class="h2"><a class="selflink" id="appendix-B" href="#appendix-B">Appendix B</a>.  Architectural Constants</span>
 
-   Architectural constants for the OSPF protocol are defined in <a href="#appendix-B">Appendix</a>
-   <a href="#appendix-B">B</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The only difference for OSPF for IPv6 is that
+   Architectural constants for the OSPF protocol are defined in <a href="rfc2328.html#appendix-B">Appendix</a>
+   <a href="rfc2328.html#appendix-B">B</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  The only difference for OSPF for IPv6 is that
    DefaultDestination is encoded as a prefix with length 0 (see
    <a href="#appendix-A.4.1">Appendix A.4.1</a>).
 
@@ -6029,7 +6029,7 @@ Table of Contents
       router&#x27;s OSPF software should be restarted before the new Router
       ID takes effect.  Before restarting due to a Router ID change, the
       router should flush its self-originated LSAs from the routing
-      domain (see Section 14.1 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Otherwise, they will
+      domain (see <a href="rfc2328.html#section-14.1">Section 14.1</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]).  Otherwise, they will
       persist for up to MaxAge seconds.
 
    Because the size of the Router ID is smaller than an IPv6 address, it
@@ -6086,13 +6086,13 @@ Table of Contents
       destinations will be based solely on a default inter-area route.
       The backbone cannot be configured as a stub or NSSA area.  Also,
       virtual links cannot be configured through stub or NSSA areas.
-      For more information, see Section 3.6 of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and [<a href="#ref-NSSA" title="&quot;The OSPF Not-So-Stubby Area (NSSA) Option&quot;">NSSA</a>].
+      For more information, see <a href="rfc2328.html#section-3.6">Section 3.6</a> of [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and [<a href="#ref-NSSA" title="&quot;The OSPF Not-So-Stubby Area (NSSA) Option&quot;">NSSA</a>].
 
    StubDefaultCost
       If the area has been configured as a stub area, and the router
       itself is an area border router, then the StubDefaultCost
       indicates the cost of the default inter-area-prefix-LSA that the
-      router should advertise into the area.  See Section 12.4.3.1 of
+      router should advertise into the area.  See <a href="rfc2328.html#section-12.4.3.1">Section 12.4.3.1</a> of
       [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] for more information.
 
    NSSATranslatorRole and TranslatorStabilityInterval
