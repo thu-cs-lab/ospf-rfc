@@ -636,7 +636,7 @@ Table of Contents
     <a href="#section-1.3">1.3</a>      Brief history of link-state routing technology ........ <a href="#page-11">11</a>
     <a href="#section-1.4">1.4</a>      Organization of this document ......................... <a href="#page-12">12</a>
     <a href="#section-1.5">1.5</a>      Acknowledgments ....................................... <a href="#page-12">12</a>
-    2        The link-state database: organization and calculations  13
+    <a href="#section-2">2</a>        The link-state database: organization and calculations  <a href="#page-13">13</a>
     <a href="#section-2.1">2.1</a>      Representation of routers and networks ................ <a href="#page-13">13</a>
     <a href="#section-2.1.1">2.1.1</a>    Representation of non-broadcast networks .............. <a href="#page-15">15</a>
     <a href="#section-2.1.2">2.1.2</a>    An example link-state database ........................ <a href="#page-18">18</a>
@@ -751,7 +751,7 @@ Table of Contents
     <a href="#section-16.4.1">16.4.1</a>   External path preferences ............................ <a href="#page-175">175</a>
     <a href="#section-16.5">16.5</a>     Incremental updates -- summary-LSAs .................. <a href="#page-175">175</a>
     <a href="#section-16.6">16.6</a>     Incremental updates -- AS-external-LSAs .............. <a href="#page-177">177</a>
-    16.7     Events generated as a result of routing table changes  177
+    <a href="#section-16.7">16.7</a>     Events generated as a result of routing table changes  <a href="#page-177">177</a>
     <a href="#section-16.8">16.8</a>     Equal-cost multipath ................................. <a href="#page-178">178</a>
              Footnotes ............................................ <a href="#page-179">179</a>
              References ........................................... <a href="#page-183">183</a>
@@ -843,7 +843,7 @@ Table of Contents
     responds quickly to topology changes, yet involves small amounts of
     routing protocol traffic.
 
-    1.1.  Protocol overview
+    <a class="selflink" id="section-1.1" href="#section-1.1">1.1</a>.  Protocol overview
 
         OSPF routes IP packets based solely on the destination IP
         address found in the IP packet header.  IP packets are routed
@@ -923,7 +923,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    1.2.  Definitions of commonly used terms
+    <a class="selflink" id="section-1.2" href="#section-1.2">1.2</a>.  Definitions of commonly used terms
 
         This section provides definitions for terms that have a specific
         meaning to the OSPF protocol and that are used throughout the
@@ -1090,7 +1090,7 @@ Table of Contents
             ethernets.
 
 
-    1.3.  Brief history of link-state routing technology
+    <a class="selflink" id="section-1.3" href="#section-1.3">1.3</a>.  Brief history of link-state routing technology
 
         OSPF is a link state routing protocol.  Such protocols are also
         referred to in the literature as SPF-based or distributed-
@@ -1140,7 +1140,7 @@ Table of Contents
         tailored for efficient operation in TCP/IP internets.
 
 
-    1.4.  Organization of this document
+    <a class="selflink" id="section-1.4" href="#section-1.4">1.4</a>.  Organization of this document
 
         The first three sections of this specification give a general
         overview of the protocol&#x27;s capabilities and functions.  Sections
@@ -1160,7 +1160,7 @@ Table of Contents
         use the precise data structures that appear in this memo.
 
 
-    1.5.  Acknowledgments
+    <a class="selflink" id="section-1.5" href="#section-1.5">1.5</a>.  Acknowledgments
 
         The author would like to thank Ran Atkinson, Fred Baker, Jeffrey
         Burgan, Rob Coltun, Dino Farinacci, Vince Fuller, Phanindra
@@ -1190,7 +1190,7 @@ Table of Contents
     the database in order to produce a router&#x27;s routing table.
 
 
-    2.1.  Representation of routers and networks
+    <a class="selflink" id="section-2.1" href="#section-2.1">2.1</a>.  Representation of routers and networks
 
         The Autonomous System&#x27;s link-state database describes a directed
         graph.  The vertices of the graph consist of routers and
@@ -1310,7 +1310,7 @@ Table of Contents
         0xffffffff, which indicates the presence of a single node.
 
 
-        2.1.1.  Representation of non-broadcast networks
+        <a class="selflink" id="section-2.1.1" href="#section-2.1.1">2.1.1</a>.  Representation of non-broadcast networks
 
             As mentioned previously, OSPF can run over non-broadcast
             networks in one of two modes: NBMA or Point-to-MultiPoint.
@@ -1423,7 +1423,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        2.1.2.  An example link-state database
+        <a class="selflink" id="section-2.1.2" href="#section-2.1.2">2.1.2</a>.  An example link-state database
 
             Figure 2 shows a sample map of an Autonomous System.  The
             rectangle labelled H1 indicates a host, which has a SLIP
@@ -1591,7 +1591,7 @@ Table of Contents
               the intersection of Column A and Row B is marked
                                   with an X.
 
-    2.2.  The shortest-path tree
+    <a class="selflink" id="section-2.2" href="#section-2.2">2.2</a>.  The shortest-path tree
 
         When no OSPF areas are configured, each router in the Autonomous
         System has an identical link-state database, leading to an
@@ -1700,7 +1700,7 @@ Table of Contents
         next section.
 
 
-    2.3.  Use of external routing information
+    <a class="selflink" id="section-2.3" href="#section-2.3">2.3</a>.  Use of external routing information
 
         After the tree is created the external routing information is
         examined.  This external routing information may originate from
@@ -1823,7 +1823,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    2.4.  Equal-cost multipath
+    <a class="selflink" id="section-2.4" href="#section-2.4">2.4</a>.  Equal-cost multipath
 
         The above discussion has been simplified by considering only a
         single route to any destination.  In reality, if multiple
@@ -1878,7 +1878,7 @@ Table of Contents
     information.  We discuss inter-area routing in <a href="#section-3.2">Section 3.2</a>.
 
 
-    3.1.  The backbone of the Autonomous System
+    <a class="selflink" id="section-3.1" href="#section-3.1">3.1</a>.  The backbone of the Autonomous System
 
         The OSPF backbone is the special OSPF Area 0 (often written as
         Area 0.0.0.0, since OSPF Area ID&#x27;s are typically formatted as IP
@@ -1900,7 +1900,7 @@ Table of Contents
         area routing only.
 
 
-    3.2.  Inter-area routing
+    <a class="selflink" id="section-3.2" href="#section-3.2">3.2</a>.  Inter-area routing
 
         When routing a packet between two non-backbone areas the
         backbone is used.  The path that the packet will travel can be
@@ -1937,7 +1937,7 @@ Table of Contents
         examining the summaries of the area border routers.
 
 
-    3.3.  Classification of routers
+    <a class="selflink" id="section-3.3" href="#section-3.3">3.3</a>.  Classification of routers
 
         Before the introduction of areas, the only OSPF routers having a
         specialized function were those advertising external routing
@@ -1984,7 +1984,7 @@ Table of Contents
             may or may not participate in the backbone.
 
 
-    3.4.  A sample area configuration
+    <a class="selflink" id="section-3.4" href="#section-3.4">3.4</a>.  A sample area configuration
 
         Figure 6 shows a sample area configuration.  The first area
         consists of networks N1-N4, along with their attached routers
@@ -2303,7 +2303,7 @@ Table of Contents
         more connectivity and more resistance to such failures.
 
 
-    3.5.  IP subnetting support
+    <a class="selflink" id="section-3.5" href="#section-3.5">3.5</a>.  IP subnetting support
 
         OSPF attaches an IP address mask to each advertised route.  The
         mask indicates the range of addresses being described by the
@@ -2395,7 +2395,7 @@ Table of Contents
         costs to the component subnets.
 
 
-    3.6.  Supporting stub areas
+    <a class="selflink" id="section-3.6" href="#section-3.6">3.6</a>.  Supporting stub areas
 
         In some Autonomous Systems, the majority of the link-state
         database may consist of AS-external-LSAs.  An OSPF AS-external-
@@ -2447,7 +2447,7 @@ Table of Contents
         areas.
 
 
-    3.7.  Partitions of areas
+    <a class="selflink" id="section-3.7" href="#section-3.7">3.7</a>.  Partitions of areas
 
         OSPF does not actively attempt to repair area partitions.  When
         an area becomes partitioned, each component simply becomes a
@@ -2573,7 +2573,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    4.1.  Inter-area routing
+    <a class="selflink" id="section-4.1" href="#section-4.1">4.1</a>.  Inter-area routing
 
         The previous section described the operation of the protocol
         within a single area.  For intra-area routing, no other routing
@@ -2597,7 +2597,7 @@ Table of Contents
         inter-area destinations.
 
 
-    4.2.  AS external routes
+    <a class="selflink" id="section-4.2" href="#section-4.2">4.2</a>.  AS external routes
 
         Routers that have information regarding other Autonomous Systems
         can flood this information throughout the AS.  This external
@@ -2623,7 +2623,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    4.3.  Routing protocol packets
+    <a class="selflink" id="section-4.3" href="#section-4.3">4.3</a>.  Routing protocol packets
 
         The OSPF protocol runs directly over IP, using IP protocol 89.
         OSPF does not provide any explicit fragmentation/reassembly
@@ -2690,7 +2690,7 @@ Table of Contents
         multicast address.
 
 
-    4.4.  Basic implementation requirements
+    <a class="selflink" id="section-4.4" href="#section-4.4">4.4</a>.  Basic implementation requirements
 
         An implementation of OSPF requires the following pieces of
         system support:
@@ -2847,7 +2847,7 @@ Table of Contents
             to schedule a task.
 
 
-    4.5.  Optional OSPF capabilities
+    <a class="selflink" id="section-4.5" href="#section-4.5">4.5</a>.  Optional OSPF capabilities
 
         The OSPF protocol defines several optional capabilities.  A
         router indicates the optional capabilities that it supports in
@@ -3144,7 +3144,7 @@ Table of Contents
     <a href="#section-10">Section 10</a>.
 
 
-    7.1.  The Hello Protocol
+    <a class="selflink" id="section-7.1" href="#section-7.1">7.1</a>.  The Hello Protocol
 
         The Hello Protocol is responsible for establishing and
         maintaining neighbor relationships.  It also ensures that
@@ -3195,7 +3195,7 @@ Table of Contents
         covered in the next section.
 
 
-    7.2.  The Synchronization of Databases
+    <a class="selflink" id="section-7.2" href="#section-7.2">7.2</a>.  The Synchronization of Databases
 
         In a link-state routing algorithm, it is very important for all
         routers&#x27; link-state databases to stay synchronized.  OSPF
@@ -3250,7 +3250,7 @@ Table of Contents
         predictable period of time.
 
 
-    7.3.  The Designated Router
+    <a class="selflink" id="section-7.3" href="#section-7.3">7.3</a>.  The Designated Router
 
         Every broadcast and NBMA network has a Designated Router.  The
         Designated Router performs two main functions for the routing
@@ -3323,7 +3323,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    7.4.  The Backup Designated Router
+    <a class="selflink" id="section-7.4" href="#section-7.4">7.4</a>.  The Backup Designated Router
 
         In order to make the transition to a new Designated Router
         smoother, there is a Backup Designated Router for each broadcast
@@ -3358,7 +3358,7 @@ Table of Contents
         traffic.  See <a href="#section-13.3">Section 13.3</a> for more information.
 
 
-    7.5.  The graph of adjacencies
+    <a class="selflink" id="section-7.5" href="#section-7.5">7.5</a>.  The graph of adjacencies
 
         An adjacency is bound to the network that the two routers have
         in common.  If two routers have multiple networks in common,
@@ -3450,7 +3450,7 @@ Table of Contents
     standard header.  Then, for each packet type, the section giving
     more details on that particular packet type&#x27;s processing is listed.
 
-    8.1.  Sending protocol packets
+    <a class="selflink" id="section-8.1" href="#section-8.1">8.1</a>.  Sending protocol packets
 
         When a router sends a routing protocol packet, it fills in the
         fields of the standard OSPF packet header as follows.  For more
@@ -3573,7 +3573,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    8.2.  Receiving protocol packets
+    <a class="selflink" id="section-8.2" href="#section-8.2">8.2</a>.  Receiving protocol packets
 
         Whenever a protocol packet is received by the router it is
         marked with the interface it was received on.  For routers that
@@ -3888,7 +3888,7 @@ Table of Contents
         transition (see Section D.3).
 
 
-    9.1.  Interface states
+    <a class="selflink" id="section-9.1" href="#section-9.1">9.1</a>.  Interface states
 
         The various states that router interfaces may attain is
         documented in this section.  The states are listed in order of
@@ -4030,7 +4030,7 @@ Table of Contents
             the Designated Router.
 
 
-    9.2.  Events causing interface state changes
+    <a class="selflink" id="section-9.2" href="#section-9.2">9.2</a>.  Events causing interface state changes
 
         State changes can be effected by a number of events.  These
         events are pictured as the labelled arcs in Figure 11.  The
@@ -4131,7 +4131,7 @@ Table of Contents
             longer functional.  No matter what the current interface
             state is, the new interface state will be Down.
 
-    9.3.  The Interface state machine
+    <a class="selflink" id="section-9.3" href="#section-9.3">9.3</a>.  The Interface state machine
 
         A detailed description of the interface state changes follows.
         Each state change is invoked by an event (<a href="#section-9.2">Section 9.2</a>).  This
@@ -4277,7 +4277,7 @@ Table of Contents
                     interface again becomes fully functional.
 
 
-    9.4.  Electing the Designated Router
+    <a class="selflink" id="section-9.4" href="#section-9.4">9.4</a>.  Electing the Designated Router
 
         This section describes the algorithm used for calculating a
         network&#x27;s Designated Router and Backup Designated Router.  This
@@ -4406,7 +4406,7 @@ Table of Contents
         for the network.
 
 
-    9.5.  Sending Hello packets
+    <a class="selflink" id="section-9.5" href="#section-9.5">9.5</a>.  Sending Hello packets
 
         Hello packets are sent out each functioning router interface.
         They are used to discover and maintain neighbor
@@ -4473,7 +4473,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        9.5.1.  Sending Hello packets on NBMA networks
+        <a class="selflink" id="section-9.5.1" href="#section-9.5.1">9.5.1</a>.  Sending Hello packets on NBMA networks
 
             Static configuration information may be necessary in order
             for the Hello Protocol to function on non-broadcast networks
