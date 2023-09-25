@@ -2374,7 +2374,7 @@ Table of Contents
 
 
         In order to get better aggregation at area boundaries, area
-        address ranges can be employed (see Section C.2 for more
+        address ranges can be employed (see <a href="#appendix-C.2">Section C.2</a> for more
         details).  Each address range is defined as an [address,mask]
         pair.  Many separate networks may then be contained in a single
         address range, just as a subnetted network is composed of many
@@ -2884,14 +2884,14 @@ Table of Contents
         shortest path tree.
 
         The OSPF optional capabilities defined in this memo are listed
-        below.  See Section A.2 for more information.
+        below.  See <a href="#appendix-A.2">Section A.2</a> for more information.
 
 
         ExternalRoutingCapability
             Entire OSPF areas can be configured as &quot;stubs&quot; (see <a href="#section-3.6">Section</a>
             <a href="#section-3.6">3.6</a>).  AS-external-LSAs will not be flooded into stub areas.
             This capability is represented by the E-bit in the OSPF
-            Options field (see Section A.2).  In order to ensure
+            Options field (see <a href="#appendix-A.2">Section A.2</a>).  In order to ensure
             consistent configuration of stub areas, all routers
             interfacing to such an area must have the E-bit clear in
             their Hello packets (see Sections <a href="#section-9.5">9.5</a> and <a href="#section-10.5">10.5</a>).
@@ -3454,7 +3454,7 @@ Table of Contents
 
         When a router sends a routing protocol packet, it fills in the
         fields of the standard OSPF packet header as follows.  For more
-        details on the header format consult Section A.3.1:
+        details on the header format consult <a href="#appendix-A.3.1">Section A.3.1</a>:
 
         Version #
             Set to 2, the version number of the protocol as documented
@@ -3490,7 +3490,7 @@ Table of Contents
             field.  This checksum is calculated as part of the
             appropriate authentication procedure; for some OSPF
             authentication types, the checksum calculation is omitted.
-            See Section D.4 for details.
+            See <a href="#appendix-D.4">Section D.4</a> for details.
 
         AuType and Authentication
             Each OSPF packet exchange is authenticated.  Authentication
@@ -3500,7 +3500,7 @@ Table of Contents
             of authentication procedure in use. The 64-bit
             authentication field is then for use by the chosen
             authentication procedure.  This procedure should be the last
-            called when forming the packet to be sent. See Section D.4
+            called when forming the packet to be sent. See <a href="#appendix-D.4">Section D.4</a>
             for details.
 
 
@@ -3885,7 +3885,7 @@ Table of Contents
         of message digests which are appended to the OSPF protocol
         packets. When Cryptographic authentication is used, multiple
         simultaneous keys are supported in order to achieve smooth key
-        transition (see Section D.3).
+        transition (see <a href="#appendix-D.3">Section D.3</a>).
 
 
     <a class="selflink" id="section-9.1" href="#section-9.1">9.1</a>.  Interface states
@@ -4423,7 +4423,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        The format of an Hello packet is detailed in Section A.3.2.  The
+        The format of an Hello packet is detailed in <a href="#appendix-A.3.2">Section A.3.2</a>.  The
         Hello Packet contains the router&#x27;s Router Priority (used in
         choosing the Designated Router), and the interval between Hello
         Packets sent out the interface (HelloInterval).  The Hello
@@ -4437,7 +4437,7 @@ Table of Contents
 
         The Hello packet&#x27;s Options field describes the router&#x27;s optional
         OSPF capabilities.  One optional capability is defined in this
-        specification (see Sections <a href="#section-4.5">4.5</a> and A.2).  The E-bit of the
+        specification (see Sections <a href="#section-4.5">4.5</a> and <a href="#appendix-A.2">A.2</a>).  The E-bit of the
         Options field should be set if and only if the attached area is
         capable of processing AS-external-LSAs (i.e., it is not a stub
         area).  If the E-bit is set incorrectly the neighboring routers
@@ -4477,7 +4477,7 @@ Table of Contents
 
             Static configuration information may be necessary in order
             for the Hello Protocol to function on non-broadcast networks
-            (see Sections C.5 and C.6).  On NBMA networks, every
+            (see Sections <a href="#appendix-C.5">C.5</a> and <a href="#appendix-C.6"></a>C.6</a>).  On NBMA networks, every
             attached router which is eligible to become Designated
             Router becomes aware of all of its neighbors on the network
             (either through configuration or by some unspecified
@@ -4587,7 +4587,7 @@ Table of Contents
     Neighbor ID
         The OSPF Router ID of the neighboring router.  The Neighbor ID
         is learned when Hello packets are received from the neighbor, or
-        is configured if this is a virtual adjacency (see Section C.4).
+        is configured if this is a virtual adjacency (see <a href="#appendix-C.4">Section C.4</a>).
 
     Neighbor Priority
         The Router Priority of the neighboring router.  Contained in the
@@ -4673,7 +4673,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    10.1.  Neighbor states
+    <a class="selflink" id="section-10.1" href="#section-10.1">10.1</a>.  Neighbor states
 
         The state of a neighbor (really, the state of a conversation
         being held with a neighboring router) is documented in the
@@ -4873,7 +4873,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    10.2.  Events causing neighbor state changes
+    <a class="selflink" id="section-10.2" href="#section-10.2">10.2</a>.  Events causing neighbor state changes
 
         State changes can be effected by a number of events.  These
         events are shown in the labels of the arcs in Figures 12 and 13.
@@ -4977,7 +4977,7 @@ Table of Contents
             forces the neighbor into Down state.
 
 
-    10.3.  The Neighbor state machine
+    <a class="selflink" id="section-10.3" href="#section-10.3">10.3</a>.  The Neighbor state machine
 
         A detailed description of the neighbor state changes follows.
         Each state change is invoked by an event (<a href="#section-10.2">Section 10.2</a>).  This
@@ -5302,7 +5302,7 @@ Table of Contents
            Action:  No action required.
 
 
-    10.4.  Whether to become adjacent
+    <a class="selflink" id="section-10.4" href="#section-10.4">10.4</a>.  Whether to become adjacent
 
         Adjacencies are established with some subset of the router&#x27;s
         neighbors.  Routers connected by point-to-point networks,
@@ -5346,10 +5346,10 @@ Table of Contents
         o   The neighboring router is the Backup Designated Router
 
 
-    10.5.  Receiving Hello Packets
+    <a class="selflink" id="section-10.5" href="#section-10.5">10.5</a>.  Receiving Hello Packets
 
         This section explains the detailed processing of a received
-        Hello Packet.  (See Section A.3.2 for the format of Hello
+        Hello Packet.  (See <a href="#appendix-A.3.2">Section A.3.2</a> for the format of Hello
         packets.)  The generic input processing of OSPF packets will
         have checked the validity of the IP header and the OSPF packet
         header.  Next, the values of the Network Mask, HelloInterval,
@@ -5473,7 +5473,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    10.6.  Receiving Database Description Packets
+    <a class="selflink" id="section-10.6" href="#section-10.6">10.6</a>.  Receiving Database Description Packets
 
         This section explains the detailed processing of a received
         Database Description Packet.  The incoming Database Description
@@ -5655,7 +5655,7 @@ Table of Contents
             master.
 
 
-    10.7.  Receiving Link State Request Packets
+    <a class="selflink" id="section-10.7" href="#section-10.7">10.7</a>.  Receiving Link State Request Packets
 
         This section explains the detailed processing of received Link
         State Request packets.  Received Link State Request Packets
@@ -5682,7 +5682,7 @@ Table of Contents
         neighbor event BadLSReq should be generated.
 
 
-    10.8.  Sending Database Description Packets
+    <a class="selflink" id="section-10.8" href="#section-10.8">10.8</a>.  Sending Database Description Packets
 
         This section describes how Database Description Packets are sent
         to a neighbor. The Database Description packet&#x27;s Interface MTU
@@ -5700,7 +5700,7 @@ Table of Contents
         capabilities change, the Database Exchange procedure should be
         restarted by reverting to neighbor state ExStart.  One optional
         capability is defined in this specification (see Sections <a href="#section-4.5">4.5</a>
-        and A.2). The E-bit should be set if and only if the attached
+        and <a href="#appendix-A.2">A.2</a>). The E-bit should be set if and only if the attached
         network belongs to a non-stub area. Unrecognized bits in the
         Options field should be set to zero.
 
@@ -5757,7 +5757,7 @@ Table of Contents
         generate a SeqNumberMismatch neighbor event.
 
 
-    10.9.  Sending Link State Request Packets
+    <a class="selflink" id="section-10.9" href="#section-10.9">10.9</a>.  Sending Link State Request Packets
 
         In neighbor states Exchange or Loading, the Link state request
         list contains a list of those LSAs that need to be obtained from
@@ -5789,7 +5789,7 @@ Table of Contents
         neighbor), the Loading Done neighbor event is generated.
 
 
-    10.10.  An Example
+    <a class="selflink" id="section-10.10" href="#section-10.10">10.10</a>.  An Example
 
         Figure 14 shows an example of an adjacency forming.  Routers RT1
         and RT2 are both connected to a broadcast network.  It is
@@ -6073,7 +6073,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    11.1.  Routing table lookup
+    <a class="selflink" id="section-11.1" href="#section-11.1">11.1</a>.  Routing table lookup
 
         When an IP data packet is received, an OSPF router finds the
         routing table entry that best matches the packet&#x27;s destination.
@@ -6111,7 +6111,7 @@ Table of Contents
         be discarded and an ICMP destination unreachable message should
         be returned to the packet&#x27;s source.
 
-    11.2.  Sample routing table, without areas
+    <a class="selflink" id="section-11.2" href="#section-11.2">11.2</a>.  Sample routing table, without areas
 
         Consider the Autonomous System pictured in Figure 2.  No OSPF
         areas have been configured.  A single metric is shown per
@@ -6142,7 +6142,7 @@ Table of Contents
 
 
 
-    11.3.  Sample routing table, with areas
+    <a class="selflink" id="section-11.3" href="#section-11.3">11.3</a>.  Sample routing table, with areas
 
         Consider the previous example, this time split into OSPF areas.
         An OSPF area configuration is pictured in Figure 6.  Router
@@ -6323,7 +6323,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    12.1.  The LSA Header
+    <a class="selflink" id="section-12.1" href="#section-12.1">12.1</a>.  The LSA Header
 
         The LSA header contains the LS type, Link State ID and
         Advertising Router fields.  The combination of these three
@@ -6346,7 +6346,7 @@ Table of Contents
         follows.
 
 
-        12.1.1.  LS age
+        <a class="selflink" id="section-12.1.1" href="#section-12.1.1">12.1.1</a>.  LS age
 
             This field is the age of the LSA in seconds.  It should be
             processed as an unsigned 16-bit integer.  It is set to 0
@@ -6380,7 +6380,7 @@ Table of Contents
             for more details.
 
 
-        12.1.2.  Options
+        <a class="selflink" id="section-12.1.2" href="#section-12.1.2">12.1.2</a>.  Options
 
             The Options field in the LSA header indicates which optional
             capabilities are associated with the LSA.  OSPF&#x27;s optional
@@ -6399,7 +6399,7 @@ Table of Contents
             does not affect the routing table calculation.
 
 
-        12.1.3.  LS type
+        <a class="selflink" id="section-12.1.3" href="#section-12.1.3">12.1.3</a>.  LS type
 
             The LS type field dictates the format and function of the
             LSA.  LSAs of different types have different names (e.g.,
@@ -6410,7 +6410,7 @@ Table of Contents
             areas (see <a href="#section-3.6">Section 3.6</a>).  Each separate LSA type is briefly
             described below in Table 15.
 
-        12.1.4.  Link State ID
+        <a class="selflink" id="section-12.1.4" href="#section-12.1.4">12.1.4</a>.  Link State ID
 
             This field identifies the piece of the routing domain that
             is being described by the LSA.  Depending on the LSA&#x27;s LS
@@ -6510,7 +6510,7 @@ Table of Contents
             DefaultDestination (0.0.0.0).
 
 
-        12.1.5.  Advertising Router
+        <a class="selflink" id="section-12.1.5" href="#section-12.1.5">12.1.5</a>.  Advertising Router
 
             This field specifies the OSPF Router ID of the LSA&#x27;s
             originator.  For router-LSAs, this field is identical to the
@@ -6528,7 +6528,7 @@ Table of Contents
             boundary routers.
 
 
-        12.1.6.  LS sequence number
+        <a class="selflink" id="section-12.1.6" href="#section-12.1.6">12.1.6</a>.  LS sequence number
 
             The sequence number field is a signed 32-bit integer.  It is
             used to detect old and duplicate LSAs.  The space of
@@ -6573,7 +6573,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        12.1.7.  LS checksum
+        <a class="selflink" id="section-12.1.7" href="#section-12.1.7">12.1.7</a>.  LS checksum
 
             This field is the checksum of the complete contents of the
             LSA, excepting the LS age field.  The LS age field is
@@ -6606,7 +6606,7 @@ Table of Contents
             <a href="#section-13.1">Section 13.1</a> for more details.
 
 
-    12.2.  The link state database
+    <a class="selflink" id="section-12.2" href="#section-12.2">12.2</a>.  The link state database
 
         A router has a separate link state database for every area to
         which it belongs. All routers belonging to the same area have
@@ -6657,7 +6657,7 @@ Table of Contents
         <a href="#section-10">Section 10</a>).
 
 
-    12.3.  Representation of TOS
+    <a class="selflink" id="section-12.3" href="#section-12.3">12.3</a>.  Representation of TOS
 
         For backward compatibility with previous versions of the OSPF
         specification ([<a href="#ref-Ref9">Ref9</a>]), TOS-specific information can be included
@@ -6701,7 +6701,7 @@ Table of Contents
                         Table 17: Representing TOS in OSPF.
 
 
-    12.4.  Originating LSAs
+    <a class="selflink" id="section-12.4" href="#section-12.4">12.4</a>.  Originating LSAs
 
         Into any given OSPF area, a router will originate several LSAs.
         Each router originates a router-LSA.  If the router is also the
@@ -6859,7 +6859,7 @@ Table of Contents
         For information concerning the building of the LSA header, see
         <a href="#section-12.1">Section 12.1</a>.
 
-        12.4.1.  Router-LSAs
+        <a class="selflink" id="section-12.4.1" href="#section-12.4.1">12.4.1</a>.  Router-LSAs
 
             A router originates a router-LSA for each area that it
             belongs to.  Such an LSA describes the collected states of
@@ -7012,7 +7012,7 @@ Table of Contents
             represented as a Type 3 link (stub network) whose Link ID is
             the host&#x27;s IP address, Link Data is the mask of all ones
             (0xffffffff), and cost the host&#x27;s configured cost (see
-            Section C.7).
+            <a href="#appendix-C.7">Section C.7</a>).
 
 
 
@@ -7023,7 +7023,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            12.4.1.1.  Describing point-to-point interfaces
+            <a class="selflink" id="section-12.4.1.1" href="#section-12.4.1.1">12.4.1.1</a>.  Describing point-to-point interfaces
 
                 For point-to-point interfaces, one or more link
                 descriptions are added to the router-LSA as follows:
@@ -7060,7 +7060,7 @@ Table of Contents
                         configured output cost.[16]
 
 
-            12.4.1.2.  Describing broadcast and NBMA interfaces
+            <a class="selflink" id="section-12.4.1.2" href="#section-12.4.1.2">12.4.1.2</a>.  Describing broadcast and NBMA interfaces
 
                 For operational broadcast and NBMA interfaces, a single
                 link description is added to the router-LSA as follows:
@@ -7093,7 +7093,7 @@ Table of Contents
                     the interface state were Waiting (see above).
 
 
-            12.4.1.3.  Describing virtual links
+            <a class="selflink" id="section-12.4.1.3" href="#section-12.4.1.3">12.4.1.3</a>.  Describing virtual links
 
                 For virtual links, a link description is added to the
                 router-LSA only when the virtual neighbor is fully
@@ -7105,7 +7105,7 @@ Table of Contents
                 table calculation (see <a href="#section-15">Section 15</a>).
 
 
-            12.4.1.4.  Describing Point-to-MultiPoint interfaces
+            <a class="selflink" id="section-12.4.1.4" href="#section-12.4.1.4">12.4.1.4</a>.  Describing Point-to-MultiPoint interfaces
 
                 For operational Point-to-MultiPoint interfaces, one or
                 more link descriptions are added to the router-LSA as
@@ -7131,7 +7131,7 @@ Table of Contents
                     configured output cost.
 
 
-            12.4.1.5.  Examples of router-LSAs
+            <a class="selflink" id="section-12.4.1.5" href="#section-12.4.1.5">12.4.1.5</a>.  Examples of router-LSAs
 
                 Consider the router-LSAs generated by Router RT3, as
                 pictured in Figure 6.  The area containing Router RT3
@@ -7209,7 +7209,7 @@ Table of Contents
                # TOS metrics = 0
                metric = 8
 
-        12.4.2.  Network-LSAs
+        <a class="selflink" id="section-12.4.2" href="#section-12.4.2">12.4.2</a>.  Network-LSAs
 
             A network-LSA is generated for every transit broadcast or
             NBMA network.  (A transit network is a network having two or
@@ -7254,7 +7254,7 @@ Table of Contents
             ID (see <a href="#section-13.4">Section 13.4</a> for more details).
 
 
-            12.4.2.1.  Examples of network-LSAs
+            <a class="selflink" id="section-12.4.2.1" href="#section-12.4.2.1">12.4.2.1</a>.  Examples of network-LSAs
 
                 Again consider the area configuration in Figure 6.
                 Network-LSAs are originated for Network N3 in Area 1,
@@ -7284,7 +7284,7 @@ Table of Contents
                Attached Router = 192.1.1.2    ;Router ID
                Attached Router = 192.1.1.3    ;Router ID
 
-        12.4.3.  Summary-LSAs
+        <a class="selflink" id="section-12.4.3" href="#section-12.4.3">12.4.3</a>.  Summary-LSAs
 
             The destination described by a summary-LSA is either an IP
             network, an AS boundary router or a range of IP addresses.
@@ -7410,7 +7410,7 @@ Table of Contents
             routing domain.
 
 
-            12.4.3.1.  Originating summary-LSAs into stub areas
+            <a class="selflink" id="section-12.4.3.1" href="#section-12.4.3.1">12.4.3.1</a>.  Originating summary-LSAs into stub areas
 
                 The algorithm in <a href="#section-12.4.3">Section 12.4.3</a> is optional when Area A
                 is an OSPF stub area. Area border routers connecting to
@@ -7446,7 +7446,7 @@ Table of Contents
                 border routers.
 
 
-            12.4.3.2.  Examples of summary-LSAs
+            <a class="selflink" id="section-12.4.3.2" href="#section-12.4.3.2">12.4.3.2</a>.  Examples of summary-LSAs
 
                 Consider again the area configuration in Figure 6.
                 Routers RT3, RT4, RT7, RT10 and RT11 are all area border
@@ -7498,7 +7498,7 @@ Table of Contents
         Advertising Router = 192.1.1.4       ;RT4&#x27;s ID
         metric = 14
 
-        12.4.4.  AS-external-LSAs
+        <a class="selflink" id="section-12.4.4" href="#section-12.4.4">12.4.4</a>.  AS-external-LSAs
 
             AS-external-LSAs describe routes to destinations external to
             the Autonomous System.  Most AS-external-LSAs describe
@@ -7541,7 +7541,7 @@ Table of Contents
             and reflooding (see <a href="#section-14.1">Section 14.1</a>).
 
 
-            12.4.4.1.  Examples of AS-external-LSAs
+            <a class="selflink" id="section-12.4.4.1" href="#section-12.4.4.1">12.4.4.1</a>.  Examples of AS-external-LSAs
 
                 Consider once again the AS pictured in Figure 6.  There
                 are two AS boundary routers: RT5 and RT7.  Router RT5
@@ -7828,7 +7828,7 @@ Table of Contents
         recent) LSA instance.
 
 
-    13.1.  Determining which LSA is newer
+    <a class="selflink" id="section-13.1" href="#section-13.1">13.1</a>.  Determining which LSA is newer
 
         When a router encounters two instances of an LSA, it must
         determine which is more recent.  This occurred above when
@@ -7873,7 +7873,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    13.2.  Installing LSAs in the database
+    <a class="selflink" id="section-13.2" href="#section-13.2">13.2</a>.  Installing LSAs in the database
 
         Installing a new LSA in the database, either as the result of
         flooding or a newly self-originated LSA, may cause the OSPF
@@ -7934,7 +7934,7 @@ Table of Contents
         lists (see <a href="#section-10">Section 10</a>).
 
 
-    13.3.  Next step in the flooding procedure
+    <a class="selflink" id="section-13.3" href="#section-13.3">13.3</a>.  Next step in the flooding procedure
 
         When a new (and more recent) LSA has been received, it must be
         flooded out some set of the router&#x27;s interfaces.  This section
@@ -8083,7 +8083,7 @@ Table of Contents
             addresses.
 
 
-    13.4.  Receiving self-originated LSAs
+    <a class="selflink" id="section-13.4" href="#section-13.4">13.4</a>.  Receiving self-originated LSAs
 
         It is a common occurrence for a router to receive self-
         originated LSAs via the flooding procedure. A self-originated
@@ -8123,7 +8123,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    13.5.  Sending Link State Acknowledgment packets
+    <a class="selflink" id="section-13.5" href="#section-13.5">13.5</a>.  Sending Link State Acknowledgment packets
 
         Each newly received LSA must be acknowledged.  This is usually
         done by sending Link State Acknowledgment packets.  However,
@@ -8258,7 +8258,7 @@ Table of Contents
 
 
 
-    13.6.  Retransmitting LSAs
+    <a class="selflink" id="section-13.6" href="#section-13.6">13.6</a>.  Retransmitting LSAs
 
         LSAs flooded out an adjacency are placed on the adjacency&#x27;s Link
         state retransmission list.  In order to ensure that flooding is
@@ -8298,7 +8298,7 @@ Table of Contents
         cleared.
 
 
-    13.7.  Receiving link state acknowledgments
+    <a class="selflink" id="section-13.7" href="#section-13.7">13.7</a>.  Receiving link state acknowledgments
 
         Many consistency checks have been made on a received Link State
         Acknowledgment packet before it is handed to the flooding
@@ -8373,7 +8373,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    14.1.  Premature aging of LSAs
+    <a class="selflink" id="section-14.1" href="#section-14.1">14.1</a>.  Premature aging of LSAs
 
         An LSA can be flushed from the routing domain by setting its LS
         age to MaxAge, while leaving its LS sequence number alone, and
@@ -8595,7 +8595,7 @@ Table of Contents
     resulting from routing table changes.
 
 
-    16.1.  Calculating the shortest-path tree for an area
+    <a class="selflink" id="section-16.1" href="#section-16.1">16.1</a>.  Calculating the shortest-path tree for an area
 
         This calculation yields the set of intra-area routes associated
         with an area (called hereafter Area A).  A router calculates the
@@ -8690,7 +8690,7 @@ Table of Contents
             the LSA associated with vertex V.  This is a lookup in the
             Area A&#x27;s link state database based on the Vertex ID.  If
             this is a router-LSA, and bit V of the router-LSA (see
-            Section A.4.2) is set, set Area A&#x27;s TransitCapability to
+            <a href="#appendix-A.4.2">Section A.4.2</a>) is set, set Area A&#x27;s TransitCapability to
             TRUE.  In any case, each link described by the LSA gives the
             cost to an adjacent vertex.  For each described link, (say
             it joins vertex V to vertex W):
@@ -8886,7 +8886,7 @@ Table of Contents
         example, the incremental SPF algorithm described in [<a href="#ref-Ref1">Ref1</a>].
 
 
-        16.1.1.  The next hop calculation
+        <a class="selflink" id="section-16.1.1" href="#section-16.1.1">16.1.1</a>.  The next hop calculation
 
             This section explains how to calculate the current set of
             next hops to use for a destination.  Each next hop consists
@@ -8957,7 +8957,7 @@ Table of Contents
             the parent network).
 
 
-    16.2.  Calculating the inter-area routes
+    <a class="selflink" id="section-16.2" href="#section-16.2">16.2</a>.  Calculating the inter-area routes
 
         The inter-area routes are calculated by examining summary-LSAs.
         If the router has active attachments to multiple areas, only
@@ -9033,7 +9033,7 @@ Table of Contents
             Otherwise, if the new path is the same cost, add it to the
             list of paths that appear in the routing table entry.
 
-    16.3.  Examining transit areas&#x27; summary-LSAs
+    <a class="selflink" id="section-16.3" href="#section-16.3">16.3</a>.  Examining transit areas&#x27; summary-LSAs
 
         This step is only performed by area border routers attached to
         one or more non-backbone areas that are capable of carrying
@@ -9173,7 +9173,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    16.4.  Calculating AS external routes
+    <a class="selflink" id="section-16.4" href="#section-16.4">16.4</a>.  Calculating AS external routes
 
         AS external routes are calculated by examining AS-external-LSAs.
         Each of the AS-external-LSAs is considered in turn.  Most AS-
@@ -9283,7 +9283,7 @@ Table of Contents
                 compared by looking at the distance to the forwarding
                 addresses.
 
-        16.4.1.  External path preferences
+        <a class="selflink" id="section-16.4.1" href="#section-16.4.1">16.4.1</a>.  External path preferences
 
             When multiple intra-AS paths are available to
             ASBRs/forwarding addresses, the following rules indicate
@@ -9311,7 +9311,7 @@ Table of Contents
             o   The other paths, intra-area backbone paths and inter-
                 area paths, are of equal preference.
 
-    16.5.  Incremental updates -- summary-LSAs
+    <a class="selflink" id="section-16.5" href="#section-16.5">16.5</a>.  Incremental updates -- summary-LSAs
 
         When a new summary-LSA is received, it is not necessary to
         recalculate the entire routing table.  Call the destination
@@ -9379,7 +9379,7 @@ Table of Contents
             destination N, in case an alternate external route to N
             exists.
 
-    16.6.  Incremental updates -- AS-external-LSAs
+    <a class="selflink" id="section-16.6" href="#section-16.6">16.6</a>.  Incremental updates -- AS-external-LSAs
 
         When a new AS-external-LSA is received, it is not necessary to
         recalculate the entire routing table.  Call the destination
@@ -9394,7 +9394,7 @@ Table of Contents
         is N.  Before this procedure is performed, the present routing
         table entry for N should be invalidated.
 
-    16.7.  Events generated as a result of routing table changes
+    <a class="selflink" id="section-16.7" href="#section-16.7">16.7</a>.  Events generated as a result of routing table changes
 
         Changes to routing table entries sometimes cause the OSPF area
         border routers to take additional actions.  These routers need
@@ -9441,7 +9441,7 @@ Table of Contents
             backbone must be originated.  This in turn may cause further
             routing table changes.
 
-    16.8.  Equal-cost multipath
+    <a class="selflink" id="section-16.8" href="#section-16.8">16.8</a>.  Equal-cost multipath
 
         The OSPF protocol maintains multiple equal-cost routes to all
         destinations.  This can be seen in the steps used above to
@@ -9785,8 +9785,8 @@ References
     the OSPF routing domain. The OSPF Options field is contained in OSPF
     Hello packets, Database Description packets and in OSPF LSAs.
 
-    OSPF packet formats are detailed in Section A.3.  A description of
-    OSPF LSAs appears in Section A.4.
+    OSPF packet formats are detailed in <a href="#appendix-A.3">Section A.3</a>.  A description of
+    OSPF LSAs appears in <a href="#appendix-A.4">Section A.4</a>.
 
 <span class="h3"><a class="selflink" id="appendix-A.1" href="#appendix-A.1">A.1</a> Encapsulation of OSPF packets</span>
 
@@ -10054,8 +10054,8 @@ References
         of the protocol.
 
     Type
-        The OSPF packet types are as follows. See Sections A.3.2 through
-        A.3.6 for details.
+        The OSPF packet types are as follows. See Sections <a href="#appendix-A.3.2">A.3.2</a> through
+        <a href="#appendix-A.3.6">A.3.6</a> for details.
 
 
 
@@ -10236,7 +10236,7 @@ References
 
     Options
         The optional capabilities supported by the router, as documented
-        in Section A.2.
+        in <a href="#appendix-A.2">Section A.2</a>.
 
     HelloInterval
         The number of seconds between this router&#x27;s Hello packets.
@@ -10339,7 +10339,7 @@ References
 
     Options
         The optional capabilities supported by the router, as documented
-        in Section A.2.
+        in <a href="#appendix-A.2">Section A.2</a>.
 
     I-bit
         The Init bit.  When set to 1, this packet is the first in the
@@ -10362,7 +10362,7 @@ References
 
     The rest of the packet consists of a (possibly partial) list of the
     link-state database&#x27;s pieces.  Each LSA in the database is described
-    by its LSA header.  The LSA header is documented in Section A.4.1.
+    by its LSA header.  The LSA header is documented in <a href="#appendix-A.4.1">Section A.4.1</a>.
     It contains all the information required to uniquely identify both
     the LSA and the LSA&#x27;s current instance.
 
@@ -10530,7 +10530,7 @@ References
     The body of the Link State Update packet consists of a list of LSAs.
     Each LSA begins with a common 20 byte header, described in Section
     A.4.1. Detailed formats of the different types of LSAs are described
-    in Section A.4.
+    in <a href="#appendix-A.4">Section A.4</a>.
 
 
 
@@ -10631,7 +10631,7 @@ References
 
 
     Each acknowledged LSA is described by its LSA header.  The LSA
-    header is documented in Section A.4.1.  It contains all the
+    header is documented in <a href="#appendix-A.4.1">Section A.4.1</a>.  It contains all the
     information required to uniquely identify both the LSA and the LSA&#x27;s
     current instance.
 
@@ -10756,7 +10756,7 @@ References
     Options
         The optional capabilities supported by the described portion of
         the routing domain.  OSPF&#x27;s optional capabilities are documented
-        in Section A.2.
+        in <a href="#appendix-A.2">Section A.2</a>.
 
     LS type
         The type of the LSA.  Each LSA type has a separate advertisement
@@ -11490,7 +11490,7 @@ References
     router via a SLIP line).  From OSPF&#x27;s point of view, these items are
     still configurable.
 
-    C.1 Global parameters
+    <a class="selflink" id="appendix-C.1" href="#appendix-C.1">C.1</a> Global parameters
 
         In general, a separate copy of the OSPF protocol is run for each
         area.  Because of this, most configuration parameters are
@@ -11536,7 +11536,7 @@ References
             routers should have RFC1583Compatibility set to &quot;disabled&quot;,
             preventing all routing loops.
 
-    C.2 Area parameters
+    <a class="selflink" id="appendix-C.2" href="#appendix-C.2">C.2</a> Area parameters
 
         All routers belonging to an area must agree on that area&#x27;s
         configuration.  Disagreements between two routers will lead to
@@ -11606,7 +11606,7 @@ References
             StubDefaultCost indicates the cost of the default summary-
             LSA that the router should advertise into the area.
 
-    C.3 Router interface parameters
+    <a class="selflink" id="appendix-C.3" href="#appendix-C.3">C.3</a> Router interface parameters
 
         Some of the configurable router interface parameters (such as IP
         interface address and subnet mask) actually imply properties of
@@ -11727,7 +11727,7 @@ References
             Authentication keys associated with the other OSPF
             authentication types are discussed in <a href="#appendix-D">Appendix D</a>.
 
-    C.4 Virtual link parameters
+    <a class="selflink" id="appendix-C.4" href="#appendix-C.4">C.4</a> Virtual link parameters
 
         Virtual links are used to restore/increase connectivity of the
         backbone.  Virtual links may be configured between any pair of
@@ -11739,7 +11739,7 @@ References
         A virtual link appears in router-LSAs (for the backbone) as if
         it were a separate router interface to the backbone.  As such,
         it has all of the parameters associated with a router interface
-        (see Section C.3).  Although a virtual link acts like an
+        (see <a href="#appendix-C.3">Section C.3</a>).  Although a virtual link acts like an
         unnumbered point-to-point link, it does have an associated IP
         interface address.  This address is used as the IP source in
         OSPF protocol packets it sends along the virtual link, and is
@@ -11758,7 +11758,7 @@ References
         (referred to as the virtual link&#x27;s Transit area).  Virtual links
         cannot be configured through stub areas.
 
-    C.5 NBMA network parameters
+    <a class="selflink" id="appendix-C.5" href="#appendix-C.5">C.5</a> NBMA network parameters
 
         OSPF treats an NBMA network much like it treats a broadcast
         network.  Since there may be many routers attached to the
@@ -11801,7 +11801,7 @@ References
             HelloInterval.  Sample value for a PDN X.25 network: 2
             minutes.
 
-    C.6 Point-to-MultiPoint network parameters
+    <a class="selflink" id="appendix-C.6" href="#appendix-C.6">C.6</a> Point-to-MultiPoint network parameters
 
         On Point-to-MultiPoint networks, it may be necessary to
         configure the set of neighbors that are directly reachable over
@@ -11823,7 +11823,7 @@ References
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    C.7 Host route parameters
+    <a class="selflink" id="appendix-C.7" href="#appendix-C.7">C.7</a> Host route parameters
 
         Host routes are advertised in router-LSAs as stub networks with
         mask 0xffffffff.  They indicate either router interfaces to
@@ -11876,7 +11876,7 @@ References
 <span class="h2"><a class="selflink" id="appendix-D" href="#appendix-D">D</a>. Authentication</span>
 
     All OSPF protocol exchanges are authenticated.  The OSPF packet
-    header (see Section A.3.1) includes an authentication type field,
+    header (see <a href="#appendix-A.3.1">Section A.3.1</a>) includes an authentication type field,
     and 64-bits of data for use by the appropriate authentication scheme
     (determined by the type field).
 
@@ -11904,7 +11904,7 @@ References
 
 
 
-    D.1 Null authentication
+    <a class="selflink" id="appendix-D.1" href="#appendix-D.1">D.1</a> Null authentication
 
         Use of this authentication type means that routing exchanges
         over the network/subnet are not authenticated.  The 64-bit
@@ -11923,7 +11923,7 @@ References
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    D.2 Simple password authentication
+    <a class="selflink" id="appendix-D.2" href="#appendix-D.2">D.2</a> Simple password authentication
 
         Using this authentication type, a 64-bit field is configured on
         a per-network basis.  All packets sent on a particular network
@@ -11942,7 +11942,7 @@ References
         access to the network can learn the password and compromise the
         security of the OSPF routing domain.
 
-    D.3 Cryptographic authentication
+    <a class="selflink" id="appendix-D.3" href="#appendix-D.3">D.3</a> Cryptographic authentication
 
         Using this authentication type, a shared secret key is
         configured in all routers attached to a common network/subnet.
@@ -12091,14 +12091,14 @@ References
         the lifetime is extended, the key is deleted by network
         management, or a new key is configured.
 
-    D.4 Message generation
+    <a class="selflink" id="appendix-D.4" href="#appendix-D.4">D.4</a> Message generation
 
         After building the contents of an OSPF packet, the
         authentication procedure indicated by the sending interface&#x27;s
         Autype value is called before the packet is sent. The
         authentication procedure modifies the OSPF packet as follows.
 
-        D.4.1 Generating Null authentication
+        <a class="selflink" id="appendix-D.4.1" href="#appendix-D.4.1">D.4.1</a> Generating Null authentication
 
             When using Null authentication, the packet is modified as
             follows:
@@ -12127,7 +12127,7 @@ References
                 words, the packet is padded with a byte of zero before
                 checksumming.
 
-        D.4.2 Generating Simple password authentication
+        <a class="selflink" id="appendix-D.4.2" href="#appendix-D.4.2">D.4.2</a> Generating Simple password authentication
 
             When using Simple password authentication, the packet is
             modified as follows:
@@ -12151,7 +12151,7 @@ References
                 authentication key) that has been configured for the
                 interface.
 
-        D.4.3 Generating Cryptographic authentication
+        <a class="selflink" id="appendix-D.4.3" href="#appendix-D.4.3">D.4.3</a> Generating Cryptographic authentication
 
             When using Cryptographic authentication, there may be
             multiple keys configured for the interface. In this case,
@@ -12227,7 +12227,7 @@ References
                     trailing pad or length fields beyond the digest are
                     not counted or transmitted.
 
-    D.5 Message verification
+    <a class="selflink" id="appendix-D.5" href="#appendix-D.5">D.5</a> Message verification
 
         When an OSPF packet has been received on an interface, it must
         be authenticated. The authentication procedure is indicated by
@@ -12238,7 +12238,7 @@ References
         of the packet continues as specified in <a href="#section-8.2">Section 8.2</a>. Packets
         which fail authentication are discarded.
 
-        D.5.1 Verifying Null authentication
+        <a class="selflink" id="appendix-D.5.1" href="#appendix-D.5.1">D.5.1</a> Verifying Null authentication
 
             When using Null authentication, the checksum field in the
             OSPF header must be verified. It must be set to the 16-bit
@@ -12248,7 +12248,7 @@ References
             words, the packet is padded with a byte of zero before
             checksumming.)
 
-        D.5.2 Verifying Simple password authentication
+        <a class="selflink" id="appendix-D.5.2" href="#appendix-D.5.2">D.5.2</a> Verifying Simple password authentication
 
             When using Simple password authentication, the received OSPF
             packet is authenticated as follows:
@@ -12273,7 +12273,7 @@ References
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        D.5.3 Verifying Cryptographic authentication
+        <a class="selflink" id="appendix-D.5.3" href="#appendix-D.5.3">D.5.3</a> Verifying Cryptographic authentication
 
             When using Cryptographic authentication, the received OSPF
             packet is authenticated as follows:
@@ -12296,7 +12296,7 @@ References
                 (a) The received digest is set aside.
 
                 (b) A new digest is calculated, as specified in Step 6
-                    of Section D.4.3.
+                    of <a href="#appendix-D.4.3">Section D.4.3</a>.
 
                 (c) The calculated and received digests are compared. If
                     they do not match, the OSPF packet is discarded. If
@@ -12529,7 +12529,7 @@ References
     <a href="/doc/html/rfc2178">2178</a>.  All differences are backward-compatible. Implementations of
     this memo and of RFCs 2178, 1583, and 1247 will interoperate.
 
-    G.1 Flooding modifications
+    <a class="selflink" id="appendix-G.1" href="#appendix-G.1">G.1</a> Flooding modifications
 
         Three changes have been made to the flooding procedure in
         <a href="#section-13">Section 13</a>.
@@ -12573,7 +12573,7 @@ References
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    G.2 Changes to external path preferences
+    <a class="selflink" id="appendix-G.2" href="#appendix-G.2">G.2</a> Changes to external path preferences
 
         There is still the possibility of a routing loop in <a href="/doc/html/rfc2178">RFC 2178</a>
         when both a) virtual links are in use and b) the same external
@@ -12596,16 +12596,16 @@ References
         Thanks to Michael Briggs and Jeremy McCooey of the UNH
         InterOperability Lab for pointing out this problem.
 
-    G.3 Incomplete resolution of virtual next hops
+    <a class="selflink" id="appendix-G.3" href="#appendix-G.3">G.3</a> Incomplete resolution of virtual next hops
 
         One of the functions of the calculation in <a href="#section-16.3">Section 16.3</a> is to
         determine the actual next hop(s) for those destinations whose
         next hop was calculated as a virtual link in Sections <a href="#section-16.1">16.1</a> and
-        16.2.  After completion of the calculation in <a href="#section-16.3">Section 16.3</a>, any
+        <a href="#section-16.2">16.2</a>.  After completion of the calculation in <a href="#section-16.3">Section 16.3</a>, any
         paths calculated in Sections <a href="#section-16.1">16.1</a> and <a href="#section-16.2">16.2</a> that still have
         unresolved virtual next hops should be discarded.
 
-    G.4 Routing table lookup
+    <a class="selflink" id="appendix-G.4" href="#appendix-G.4">G.4</a> Routing table lookup
 
         The routing table lookup algorithm in <a href="#section-11.1">Section 11.1</a> has been
         modified to reflect current practice. The &quot;best match&quot; routing
