@@ -5355,7 +5355,7 @@ Table of Contents
 
     <a class="selflink" id="section-10.5" href="#section-10.5">10.5</a>.  Receiving Hello Packets
 
-        This section explains the detailed processing of a received
+        <span class="hl2">This section explains the detailed processing of a received
         Hello Packet.  (See <a href="#appendix-A.3.2">Section A.3.2</a> for the format of Hello
         packets.)  The generic input processing of OSPF packets will
         have checked the validity of the IP header and the OSPF packet
@@ -5370,7 +5370,7 @@ Table of Contents
         Hello Packet should be ignored.
 
         The receiving interface attaches to a single OSPF area (this
-        could be the backbone).  The setting of the E-bit found in the
+        could be the backbone).</span>  The setting of the E-bit found in the
         Hello Packet&#x27;s Options field must match this area&#x27;s
 
 
@@ -5384,21 +5384,21 @@ Table of Contents
         into/throughout the area (i.e, the area is a &quot;stub&quot;) the E-bit
         must be clear in received Hello Packets, otherwise the E-bit
         must be set.  A mismatch causes processing to stop and the
-        packet to be dropped.  The setting of the rest of the bits in
-        the Hello Packet&#x27;s Options field should be ignored.
+        packet to be dropped.  <span class="hl2">The setting of the rest of the bits in
+        the Hello Packet&#x27;s Options field should be ignored.</span>
 
-        At this point, an attempt is made to match the source of the
-        Hello Packet to one of the receiving interface&#x27;s neighbors.  If
+        <span class="hl2">At this point, an attempt is made to match the source of the
+        Hello Packet to one of the receiving interface&#x27;s neighbors.</span>  If
         the receiving interface connects to a broadcast, Point-to-
         MultiPoint or NBMA network the source is identified by the IP
-        source address found in the Hello&#x27;s IP header.  If the receiving
+        source address found in the Hello&#x27;s IP header.  <span class="hl2">If the receiving
         interface connects to a point-to-point link or a virtual link,
         the source is identified by the Router ID found in the Hello&#x27;s
         OSPF packet header.  The interface&#x27;s current list of neighbors
         is contained in the interface&#x27;s data structure.  If a matching
         neighbor structure cannot be found, (i.e., this is the first
         time the neighbor has been detected), one is created.  The
-        initial state of a newly created neighbor is set to Down.
+        initial state of a newly created neighbor is set to Down.</span>
 
         When receiving an Hello Packet from a neighbor on a broadcast,
         Point-to-MultiPoint or NBMA network, set the neighbor
@@ -5408,7 +5408,7 @@ Table of Contents
         field, and Neighbor&#x27;s Backup Designated Router field are also
         set equal to the corresponding fields found in the received
         Hello Packet; changes in these fields should be noted for
-        possible use in the steps below.  When receiving an Hello on a
+        possible use in the steps below.  <span class="hl2">When receiving an Hello on a
         point-to-point network (but not on a virtual link) set the
         neighbor structure&#x27;s Neighbor IP address to the packet&#x27;s IP
         source address.
@@ -5418,7 +5418,7 @@ Table of Contents
         state machines are specified either to be executed or scheduled
         (see <a href="#section-4.4">Section 4.4</a>).  For example, by specifying below that the
         neighbor state machine be executed in line, several neighbor
-        state transitions may be effected by a single received Hello:
+        state transitions may be effected by a single received Hello:</span>
 
 
 
@@ -5430,7 +5430,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        o   Each Hello Packet causes the neighbor state machine to be
+        <span class="hl2">o   Each Hello Packet causes the neighbor state machine to be
             executed with the event HelloReceived.
 
         o   Then the list of neighbors contained in the Hello Packet is
@@ -5438,7 +5438,7 @@ Table of Contents
             neighbor state machine should be executed with the event 2-
             WayReceived.  Otherwise, the neighbor state machine should
             be executed with the event 1-WayReceived, and the processing
-            of the packet stops.
+            of the packet stops.</span>
 
         o   Next, if a change in the neighbor&#x27;s Router Priority field
             was noted, the receiving interface&#x27;s state machine is
@@ -5482,7 +5482,7 @@ Table of Contents
 
     <a class="selflink" id="section-10.6" href="#section-10.6">10.6</a>.  Receiving Database Description Packets
 
-        This section explains the detailed processing of a received
+        <span class="hl1">This section explains the detailed processing of a received
         Database Description Packet.  The incoming Database Description
         Packet has already been associated with a neighbor and receiving
         interface by the generic input packet processing (<a href="#section-8.2">Section 8.2</a>).
@@ -5518,7 +5518,7 @@ Table of Contents
             either state 2-Way or state ExStart. If the new state is
             ExStart, the processing of the current packet should then
             continue in this new state by falling through to case
-            ExStart below.
+            ExStart below.</span>
 
 
 
@@ -5534,7 +5534,7 @@ Table of Contents
             The packet should be ignored.  Database Description Packets
             are used only for the purpose of bringing up adjacencies.[7]
 
-        ExStart
+        <span class="hl1">ExStart
             If the received packet matches one of the following cases,
             then the neighbor state machine should be executed with the
             event NegotiationDone (causing the state to transition to
@@ -5570,7 +5570,7 @@ Table of Contents
                 packet.
 
             o   If the initialize(I) bit is set, generate the neighbor
-                event SeqNumberMismatch and stop processing the packet.
+                event SeqNumberMismatch and stop processing the packet.</span>
 
 
 
@@ -5580,7 +5580,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            o   If the packet&#x27;s Options field indicates a different set
+            <span class="hl1">o   If the packet&#x27;s Options field indicates a different set
                 of optional OSPF capabilities than were previously
                 received from the neighbor (recorded in the Neighbor
                 Options field of the neighbor structure), generate the
@@ -5621,7 +5621,7 @@ Table of Contents
         follows.  For each LSA listed, the LSA&#x27;s LS type is checked for
         validity.  If the LS type is unknown (e.g., not one of the LS
         types 1-5 defined by this specification), or if this is an AS-
-        external-LSA (LS type = 5) and the neighbor is associated with a
+        external-LSA (LS type = 5) and the neighbor is associated with a</span>
 
 
 
@@ -5630,7 +5630,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        stub area, generate the neighbor event SeqNumberMismatch and
+        <span class="hl1">stub area, generate the neighbor event SeqNumberMismatch and
         stop processing the packet.  Otherwise, the router looks up the
         LSA in its database to see whether it also has an instance of
         the LSA.  If it does not, or if the database copy is less recent
@@ -5659,17 +5659,17 @@ Table of Contents
             the packet to be sent by the slave will also have the M-bit
             set to 0, the neighbor event ExchangeDone is generated.
             Note that the slave always generates this event before the
-            master.
+            master.</span>
 
 
     <a class="selflink" id="section-10.7" href="#section-10.7">10.7</a>.  Receiving Link State Request Packets
 
-        This section explains the detailed processing of received Link
+        <span class="hl1">This section explains the detailed processing of received Link
         State Request packets.  Received Link State Request Packets
         specify a list of LSAs that the neighbor wishes to receive.
         Link State Request Packets should be accepted when the neighbor
         is in states Exchange, Loading, or Full.  In all other states
-        Link State Request Packets should be ignored.
+        Link State Request Packets should be ignored.</span>
 
 
 
@@ -5680,23 +5680,23 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        Each LSA specified in the Link State Request packet should be
+        <span class="hl1">Each LSA specified in the Link State Request packet should be
         located in the router&#x27;s database, and copied into Link State
         Update packets for transmission to the neighbor.  These LSAs
         should NOT be placed on the Link state retransmission list for
         the neighbor.  If an LSA cannot be found in the database,
         something has gone wrong with the Database Exchange process, and
-        neighbor event BadLSReq should be generated.
+        neighbor event BadLSReq should be generated.</span>
 
 
     <a class="selflink" id="section-10.8" href="#section-10.8">10.8</a>.  Sending Database Description Packets
 
-        This section describes how Database Description Packets are sent
+        <span class="hl1">This section describes how Database Description Packets are sent
         to a neighbor. The Database Description packet&#x27;s Interface MTU
         field is set to the size of the largest IP datagram that can be
         sent out the sending interface, without fragmentation.  Common
         MTUs in use in the Internet can be found in Table 7-1 of
-        [<a href="#ref-Ref22">Ref22</a>]. Interface MTU should be set to 0 in Database
+        [<a href="#ref-Ref22">Ref22</a>].</span> Interface MTU should be set to 0 in Database
         Description packets sent over virtual links.
 
         The router&#x27;s optional OSPF capabilities (see <a href="#section-4.5">Section 4.5</a>) are
@@ -5711,7 +5711,7 @@ Table of Contents
         network belongs to a non-stub area. Unrecognized bits in the
         Options field should be set to zero.
 
-        The sending of Database Description packets depends on the
+        <span class="hl1">The sending of Database Description packets depends on the
         neighbor&#x27;s state.  In state ExStart the router sends empty
         Database Description packets, with the initialize (I), more (M)
         and master (MS) bits set.  These packets are retransmitted every
@@ -5721,7 +5721,7 @@ Table of Contents
         contain summaries of the link state information contained in the
         router&#x27;s database.  Each LSA in the area&#x27;s link-state database
         (at the time the neighbor transitions into Exchange state) is
-        listed in the neighbor Database summary list.  Each new Database
+        listed in the neighbor Database summary list.  Each new Database</span>
 
 
 
@@ -5730,7 +5730,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        Description Packet copies its DD sequence number from the
+        <span class="hl1">Description Packet copies its DD sequence number from the
         neighbor data structure and then describes the current top of
         the Database summary list.  Items are removed from the Database
         summary list when the previous packet is acknowledged.
@@ -5761,16 +5761,16 @@ Table of Contents
         the slave must wait RouterDeadInterval seconds before freeing
         the last Database Description packet.  Reception of a Database
         Description packet from the master after this interval will
-        generate a SeqNumberMismatch neighbor event.
+        generate a SeqNumberMismatch neighbor event.</span>
 
 
     <a class="selflink" id="section-10.9" href="#section-10.9">10.9</a>.  Sending Link State Request Packets
 
-        In neighbor states Exchange or Loading, the Link state request
+        <span class="hl1">In neighbor states Exchange or Loading, the Link state request
         list contains a list of those LSAs that need to be obtained from
         the neighbor.  To request these LSAs, a router sends the
         neighbor the beginning of the Link state request list, packaged
-        in a Link State Request packet.
+        in a Link State Request packet.</span>
 
 
 
@@ -5780,7 +5780,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        When the neighbor responds to these requests with the proper
+        <span class="hl1">When the neighbor responds to these requests with the proper
         Link State Update packet(s), the Link state request list is
         truncated and a new Link State Request packet is sent.  This
         process continues until the Link state request list becomes
@@ -5793,7 +5793,7 @@ Table of Contents
         When the Link state request list becomes empty, and the neighbor
         state is Loading (i.e., a complete sequence of Database
         Description packets has been sent to and received from the
-        neighbor), the Loading Done neighbor event is generated.
+        neighbor), the Loading Done neighbor event is generated.</span>
 
 
     <a class="selflink" id="section-10.10" href="#section-10.10">10.10</a>.  An Example
@@ -5904,7 +5904,7 @@ Table of Contents
 
 <span class="h2"><a class="selflink" id="section-11" href="#section-11">11</a>.  The Routing Table Structure</span>
 
-    The routing table data structure contains all the information
+    <span class="hl2">The routing table data structure contains all the information
     necessary to forward an IP data packet toward its destination.  Each
     routing table entry describes the collection of best paths to a
     particular destination.  When forwarding an IP data packet, the
@@ -5916,11 +5916,11 @@ Table of Contents
     route exists, it matches all IP destinations (although any other
     matching entry is a better match).  Finding the routing table entry
     that best matches an IP destination is further described in <a href="#section-11.1">Section</a>
-    <a href="#section-11.1">11.1</a>.
+    <a href="#section-11.1">11.1</a>.</span>
 
     There is a single routing table in each router.  Two sample routing
-    tables are described in Sections <a href="#section-11.2">11.2</a> and <a href="#section-11.3">11.3</a>.  The building of the
-    routing table is discussed in <a href="#section-16">Section 16</a>.
+    tables are described in Sections <a href="#section-11.2">11.2</a> and <a href="#section-11.3">11.3</a>.  <span class="hl2">The building of the
+    routing table is discussed in <a href="#section-16">Section 16</a>.</span>
 
 
 
@@ -5930,7 +5930,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-    The rest of this section defines the fields found in a routing table
+    <span class="hl2">The rest of this section defines the fields found in a routing table
     entry.  The first set of fields describes the routing table entry&#x27;s
     destination.
 
@@ -5944,7 +5944,7 @@ Table of Contents
         A network is a range of IP addresses, to which IP data traffic
         may be forwarded.  This includes IP networks (class A, B, or C),
         IP subnets, IP supernets and single IP hosts.  The default route
-        also falls into this category.
+        also falls into this category.</span>
 
         Router entries are kept for area border routers and AS boundary
         routers.  Routing table entries for area border routers are used
@@ -5953,17 +5953,17 @@ Table of Contents
         Routing table entries for AS boundary routers are used when
         calculating the AS external routes (see <a href="#section-16.4">Section 16.4</a>).
 
-    Destination ID
+    <span class="hl2">Destination ID
         The destination&#x27;s identifier or name.  This depends on the
         Destination Type.  For networks, the identifier is their
-        associated IP address.  For routers, the identifier is the OSPF
+        associated IP address.</span>  For routers, the identifier is the OSPF
         Router ID.[9]
 
-    Address Mask
+    <span class="hl2">Address Mask
         Only defined for networks.  The network&#x27;s IP address together
         with its address mask defines a range of IP addresses.  For IP
         subnets, the address mask is referred to as the subnet mask.
-        For host routes, the mask is &quot;all ones&quot; (0xffffffff).
+        For host routes, the mask is &quot;all ones&quot; (0xffffffff).</span>
 
     Optional Capabilities
         When the destination is a router this field indicates the
@@ -6016,10 +6016,10 @@ Table of Contents
         paths to destinations external to the AS.  These are detected
         through the examination of received AS-external-LSAs.
 
-    Cost
+    <span class="hl2">Cost
         The link state cost of the path to the destination.  For all
         paths except type 2 external paths this describes the entire
-        path&#x27;s cost.  For Type 2 external paths, this field describes
+        path&#x27;s cost.</span>  For Type 2 external paths, this field describes
         the cost of the portion of the path internal to the AS.  This
 
 
@@ -6286,19 +6286,33 @@ Table of Contents
 
 <span class="h2"><a class="selflink" id="section-12" href="#section-12">12</a>.  Link State Advertisements (LSAs)</span>
 
-    Each router in the Autonomous System originates one or more link
+    <span class="hl2">Each router in the Autonomous System originates one or more link
     state advertisements (LSAs).  This memo defines five distinct types
     of LSAs, which are described in <a href="#section-4.3">Section 4.3</a>.  The collection of LSAs
     forms the link-state database.  Each separate type of LSA has a
     separate function.  Router-LSAs and network-LSAs describe how an
-    area&#x27;s routers and networks are interconnected.  Summary-LSAs
+    area&#x27;s routers and networks are interconnected.</span>  Summary-LSAs
     provide a way of condensing an area&#x27;s routing information.  AS-
     external-LSAs provide a way of transparently advertising
     externally-derived routing information throughout the Autonomous
     System.
 
-    Each LSA begins with a standard 20-byte header.  This LSA header is
-    discussed below.
+    <span class="hl2">Each LSA begins with a standard 20-byte header.  This LSA header is
+    discussed below.</span>
+
+   <span class="remarks">For IPv6, the OSPF LSA header has changed slightly, with the LS type
+   field expanding and the Options field being moved into the body of
+   appropriate LSAs.  Also, the formats of some LSAs have changed
+   somewhat (namely, router-LSAs, network-LSAs, AS-external-LSAs, and
+   NSSA-LSAs), while the names of other LSAs have been changed (type 3
+   and 4 summary-LSAs are now inter-area-prefix-LSAs and inter-area-
+   router-LSAs respectively) and additional LSAs have been added (link-
+   LSAs and intra-area-prefix-LSAs).  Type of Service (TOS) has been
+   removed from the OSPFv2 specification [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] and is not encoded
+   within OSPF for IPv6&#x27;s LSAs.
+
+   These changes will be described in detail in the following
+   subsections.</span>
 
 
 
@@ -6332,7 +6346,7 @@ Table of Contents
 
     <a class="selflink" id="section-12.1" href="#section-12.1">12.1</a>.  The LSA Header
 
-        The LSA header contains the LS type, Link State ID and
+        <span class="hl2">The LSA header contains the LS type, Link State ID and
         Advertising Router fields.  The combination of these three
         fields uniquely identifies the LSA.
 
@@ -6341,29 +6355,29 @@ Table of Contents
         determined which instance is more recent.  This determination is
         made by examining the LS sequence, LS checksum and LS age
         fields.  These fields are also contained in the 20-byte LSA
-        header.
+        header.</span>
 
-        Several of the OSPF packet types list LSAs.  When the instance
+        <span class="hl1">Several of the OSPF packet types list LSAs.  When the instance
         is not important, an LSA is referred to by its LS type, Link
         State ID and Advertising Router (see Link State Request
         Packets).  Otherwise, the LS sequence number, LS age and LS
         checksum fields must also be referenced.
 
         A detailed explanation of the fields contained in the LSA header
-        follows.
+        follows.</span>
 
 
         <a class="selflink" id="section-12.1.1" href="#section-12.1.1">12.1.1</a>.  LS age
 
-            This field is the age of the LSA in seconds.  It should be
-            processed as an unsigned 16-bit integer.  It is set to 0
+            <span class="hl2">This field is the age of the LSA in seconds.  It should be
+            processed as an unsigned 16-bit integer.</span>  <span class="hl1">It is set to 0
             when the LSA is originated.  It must be incremented by
             InfTransDelay on every hop of the flooding procedure.  LSAs
-            are also aged as they are held in each router&#x27;s database.
+            are also aged as they are held in each router&#x27;s database.</span>
 
-            The age of an LSA is never incremented past MaxAge.  LSAs
+            <span class="hl2">The age of an LSA is never incremented past MaxAge.  LSAs
             having age MaxAge are not used in the routing table
-            calculation.  When an LSA&#x27;s age first reaches MaxAge, it is
+            calculation.</span>  <span class="hl1">When an LSA&#x27;s age first reaches MaxAge, it is
             reflooded.  An LSA of age MaxAge is finally flushed from the
             database when it is no longer needed to ensure database
             synchronization.  For more information on the aging of LSAs,
@@ -6371,7 +6385,7 @@ Table of Contents
 
             The LS age field is examined when a router receives two
             instances of an LSA, both having identical LS sequence
-            numbers and LS checksums.  An instance of age MaxAge is then
+            numbers and LS checksums.  An instance of age MaxAge is then</span>
 
 
 
@@ -6380,11 +6394,11 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            always accepted as most recent; this allows old LSAs to be
+            <span class="hl1">always accepted as most recent; this allows old LSAs to be
             flushed quickly from the routing domain.  Otherwise, if the
             ages differ by more than MaxAgeDiff, the instance having the
             smaller age is accepted as most recent.[12] See <a href="#section-13.1">Section 13.1</a>
-            for more details.
+            for more details.</span>
 
 
         <a class="selflink" id="section-12.1.2" href="#section-12.1.2">12.1.2</a>.  Options
@@ -6408,20 +6422,51 @@ Table of Contents
 
         <a class="selflink" id="section-12.1.3" href="#section-12.1.3">12.1.3</a>.  LS type
 
-            The LS type field dictates the format and function of the
+            <span class="hl2">The LS type field dictates the format and function of the
             LSA.  LSAs of different types have different names (e.g.,
-            router-LSAs or network-LSAs).  All LSA types defined by this
+            router-LSAs or network-LSAs).</span>  <span class="hl1">All LSA types defined by this
             memo, except the AS-external-LSAs (LS type = 5), are flooded
             throughout a single area only.  AS-external-LSAs are flooded
             throughout the entire Autonomous System, excepting stub
-            areas (see <a href="#section-3.6">Section 3.6</a>).  Each separate LSA type is briefly
+            areas (see <a href="#section-3.6">Section 3.6</a>).</span>  Each separate LSA type is briefly
             described below in Table 15.
+
+   <span class="remarks">LS type
+      The size of the LS type field has increased from 8 to 16 bits,
+      with high-order bit encoding the handling of unknown types and the
+      next two bits encoding flooding scope.  See below for the current
+      coding of the LS type field.
+
+            LSA Function Code   LS Type   Description
+            ----------------------------------------------------
+            1                   0x2001    Router-LSA
+            2                   0x2002    Network-LSA
+            3                   0x2003    Inter-Area-Prefix-LSA
+            4                   0x2004    Inter-Area-Router-LSA
+            5                   0x4005    AS-External-LSA
+            6                   0x2006    Deprecated (may be reassigned)
+            7                   0x2007    NSSA-LSA
+            8                   0x0008    Link-LSA
+            9                   0x2009    Intra-Area-Prefix-LSA
+
+                             LSA Function Code</span>
 
         <a class="selflink" id="section-12.1.4" href="#section-12.1.4">12.1.4</a>.  Link State ID
 
-            This field identifies the piece of the routing domain that
-            is being described by the LSA.  Depending on the LSA&#x27;s LS
+            <span class="hl2">This field identifies the piece of the routing domain that
+            is being described by the LSA.</span>  Depending on the LSA&#x27;s LS
             type, the Link State ID takes on the values listed in Table
+
+   <span class="remarks">Link State ID
+      The Link State ID remains at 32 bits in length.  However, except
+      for network-LSAs and link-LSAs, the Link State ID has shed any
+      addressing semantics.  For example, an IPv6 router originating
+      multiple AS-external-LSAs could start by assigning the first a
+      Link State ID of 0.0.0.1, the second a Link State ID of 0.0.0.2,
+      and so on.  Instead of the IPv4 behavior of encoding the network
+      number within the AS-external-LSA&#x27;s Link State ID, the IPv6 Link
+      State ID simply serves as a way to differentiate multiple LSAs
+      originated by the same router.</span>
 
 
 
@@ -6519,8 +6564,8 @@ Table of Contents
 
         <a class="selflink" id="section-12.1.5" href="#section-12.1.5">12.1.5</a>.  Advertising Router
 
-            This field specifies the OSPF Router ID of the LSA&#x27;s
-            originator.  For router-LSAs, this field is identical to the
+            <span class="hl2">This field specifies the OSPF Router ID of the LSA&#x27;s
+            originator.</span>  For router-LSAs, this field is identical to the
             Link State ID field.  Network-LSAs are originated by the
 
 
@@ -6537,7 +6582,7 @@ Table of Contents
 
         <a class="selflink" id="section-12.1.6" href="#section-12.1.6">12.1.6</a>.  LS sequence number
 
-            The sequence number field is a signed 32-bit integer.  It is
+            <span class="hl2">The sequence number field is a signed 32-bit integer.  It is
             used to detect old and duplicate LSAs.  The space of
             sequence numbers is linearly ordered.  The larger the
             sequence number (when compared as signed 32-bit integers)
@@ -6546,7 +6591,7 @@ Table of Contents
             the constant 2**31.
 
             The sequence number -N (0x80000000) is reserved (and
-            unused).  This leaves -N + 1 (0x80000001) as the smallest
+            unused).</span>  <span class="hl1">This leaves -N + 1 (0x80000001) as the smallest
             (and therefore oldest) sequence number; this sequence number
             is referred to as the constant InitialSequenceNumber. A
             router uses InitialSequenceNumber the first time it
@@ -6568,7 +6613,7 @@ Table of Contents
             should be a rare event.  This may indicate that an out-of-
             date LSA, originated by the router itself before its last
             restart/reload, still exists in the Autonomous System.  For
-            more information see <a href="#section-13.4">Section 13.4</a>.
+            more information see <a href="#section-13.4">Section 13.4</a>.</span>
 
 
 
@@ -6582,17 +6627,17 @@ Table of Contents
 
         <a class="selflink" id="section-12.1.7" href="#section-12.1.7">12.1.7</a>.  LS checksum
 
-            This field is the checksum of the complete contents of the
-            LSA, excepting the LS age field.  The LS age field is
+            <span class="hl2">This field is the checksum of the complete contents of the
+            LSA, excepting the LS age field.</span>  <span class="hl1">The LS age field is
             excepted so that an LSA&#x27;s age can be incremented without
             updating the checksum.  The checksum used is the same that
             is used for ISO connectionless datagrams; it is commonly
             referred to as the Fletcher checksum.  It is documented in
-            Annex B of [<a href="#ref-Ref6">Ref6</a>].  The LSA header also contains the length
+            Annex B of [<a href="#ref-Ref6">Ref6</a>].</span>  <span class="hl2">The LSA header also contains the length
             of the LSA in bytes; subtracting the size of the LS age
-            field (two bytes) yields the amount of data to checksum.
+            field (two bytes) yields the amount of data to checksum.</span>
 
-            The checksum is used to detect data corruption of an LSA.
+            <span class="hl1">The checksum is used to detect data corruption of an LSA.
             This corruption can occur while an LSA is being flooded, or
             while it is being held in a router&#x27;s memory.  The LS
             checksum field cannot take on the value of zero; the
@@ -6610,18 +6655,18 @@ Table of Contents
             instances of an LSA are the same, the LS checksum field is
             examined.  If there is a difference, the instance with the
             larger LS checksum is considered to be most recent.[13] See
-            <a href="#section-13.1">Section 13.1</a> for more details.
+            <a href="#section-13.1">Section 13.1</a> for more details.</span>
 
 
     <a class="selflink" id="section-12.2" href="#section-12.2">12.2</a>.  The link state database
 
-        A router has a separate link state database for every area to
+        <span class="hl1">A router has a separate link state database for every area to
         which it belongs. All routers belonging to the same area have
         identical link state databases for the area.
 
         The databases for each individual area are always dealt with
         separately.  The shortest path calculation is performed
-        separately for each area (see <a href="#section-16">Section 16</a>).  Components of the
+        separately for each area (see <a href="#section-16">Section 16</a>).  Components of the</span>
 
 
 
@@ -6630,7 +6675,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        area link-state database are flooded throughout the area only.
+        <span class="hl1">area link-state database are flooded throughout the area only.
         Finally, when an adjacency (belonging to Area A) is being
         brought up, only the database for Area A is synchronized between
         the two routers.
@@ -6661,7 +6706,7 @@ Table of Contents
         out and is flushed from the routing domain (<a href="#section-14">Section 14</a>).
         Whenever an LSA is deleted from the database it must also be
         removed from all neighbors&#x27; Link state retransmission lists (see
-        <a href="#section-10">Section 10</a>).
+        <a href="#section-10">Section 10</a>).</span>
 
 
     <a class="selflink" id="section-12.3" href="#section-12.3">12.3</a>.  Representation of TOS
@@ -6710,8 +6755,8 @@ Table of Contents
 
     <a class="selflink" id="section-12.4" href="#section-12.4">12.4</a>.  Originating LSAs
 
-        Into any given OSPF area, a router will originate several LSAs.
-        Each router originates a router-LSA.  If the router is also the
+        <span class="hl1">Into any given OSPF area, a router will originate several LSAs.
+        Each router originates a router-LSA.</span>  If the router is also the
         Designated Router for any of the area&#x27;s networks, it will
         originate network-LSAs for those networks.
 
@@ -6720,8 +6765,8 @@ Table of Contents
         single AS-external-LSA for each known AS external destination.
         Destinations are advertised one at a time so that the change in
         any single route can be flooded without reflooding the entire
-        collection of routes.  During the flooding procedure, many LSAs
-        can be carried by a single Link State Update packet.
+        collection of routes.  <span class="hl1">During the flooding procedure, many LSAs
+        can be carried by a single Link State Update packet.</span>
 
 
 
@@ -6750,7 +6795,7 @@ Table of Contents
         <a href="#section-12.4.3">12.4.3</a>).  This instructs all of area 3&#x27;s internal routers to
         send their AS external traffic to RT11.
 
-        Whenever a new instance of an LSA is originated, its LS sequence
+        <span class="hl1">Whenever a new instance of an LSA is originated, its LS sequence
         number is incremented, its LS age is set to 0, its LS checksum
         is calculated, and the LSA is added to the link state database
         and flooded out the appropriate interfaces.  See <a href="#section-13.2">Section 13.2</a>
@@ -6771,7 +6816,7 @@ Table of Contents
             periodic updating of LSAs adds robustness to the link state
             algorithm.  LSAs that solely describe unreachable
             destinations should not be refreshed, but should instead be
-            flushed from the routing domain (see <a href="#section-14.1">Section 14.1</a>).
+            flushed from the routing domain (see <a href="#section-14.1">Section 14.1</a>).</span>
 
 
 
@@ -6780,7 +6825,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        When whatever is being described by an LSA changes, a new LSA is
+        <span class="hl1">When whatever is being described by an LSA changes, a new LSA is
         originated.  However, two instances of the same LSA may not be
         originated within the time period MinLSInterval.  This may
         require that the generation of the next instance be delayed by
@@ -6792,7 +6837,7 @@ Table of Contents
 
         (2) An interface&#x27;s state changes (see <a href="#section-9.1">Section 9.1</a>).  This may
             mean that it is necessary to produce a new instance of the
-            router-LSA.
+            router-LSA.</span>
 
         (3) An attached network&#x27;s Designated Router changes.  A new
             router-LSA should be originated.  Also, if the router itself
@@ -6802,9 +6847,9 @@ Table of Contents
             the network should be flushed from the routing domain (see
             <a href="#section-14.1">Section 14.1</a>).
 
-        (4) One of the neighboring routers changes to/from the FULL
+        <span class="hl1">(4) One of the neighboring routers changes to/from the FULL
             state.  This may mean that it is necessary to produce a new
-            instance of the router-LSA.  Also, if the router is itself
+            instance of the router-LSA.</span>  Also, if the router is itself
             the Designated Router for the attached network, a new
             network-LSA should be produced.
 
@@ -6860,18 +6905,18 @@ Table of Contents
             specified in <a href="#section-14.1">Section 14.1</a>.
 
 
-        The construction of each type of LSA is explained in detail
+        <span class="hl1">The construction of each type of LSA is explained in detail
         below.  In general, these sections describe the contents of the
         LSA body (i.e., the part coming after the 20-byte LSA header).
         For information concerning the building of the LSA header, see
-        <a href="#section-12.1">Section 12.1</a>.
+        <a href="#section-12.1">Section 12.1</a>.</span>
 
         <a class="selflink" id="section-12.4.1" href="#section-12.4.1">12.4.1</a>.  Router-LSAs
 
-            A router originates a router-LSA for each area that it
+            <span class="hl1">A router originates a router-LSA for each area that it
             belongs to.  Such an LSA describes the collected states of
             the router&#x27;s links to the area.  The LSA is flooded
-            throughout the particular area, and no further.
+            throughout the particular area, and no further.</span>
 
 
 
@@ -6907,14 +6952,14 @@ Table of Contents
 
                     Figure 15: Area 1 with IP addresses shown
 
-            The format of a router-LSA is shown in <a href="#appendix-A">Appendix A</a> (Section
+            <span class="hl1">The format of a router-LSA is shown in <a href="#appendix-A">Appendix A</a> (Section
             A.4.2).  The first 20 bytes of the LSA consist of the
             generic LSA header that was discussed in <a href="#section-12.1">Section 12.1</a>.
             router-LSAs have LS type = 1.
 
             A router also indicates whether it is an area border router,
             or an AS boundary router, by setting the appropriate bits
-            (bit B and bit E, respectively) in its router-LSAs. This
+            (bit B and bit E, respectively) in its router-LSAs.</span> This
             enables paths to those types of routers to be saved in the
             routing table, for later processing of summary-LSAs and AS-
             external-LSAs.  Bit B should be set whenever the router is
@@ -6937,7 +6982,7 @@ Table of Contents
             Area A to discover whether the area supports transit traffic
             (see TransitCapability in <a href="#section-6">Section 6</a>).
 
-            The router-LSA then describes the router&#x27;s working
+            <span class="hl1">The router-LSA then describes the router&#x27;s working
             connections (i.e., interfaces or links) to the area.  Each
             link is typed according to the kind of attached network.
             Each link is also labelled with its Link ID.  This Link ID
@@ -6950,7 +6995,7 @@ Table of Contents
                    Link type   Description       Link ID
                    __________________________________________________
                    1           Point-to-point    Neighbor Router ID
-                               link
+                               link</span>
                    2           Link to transit   Interface address of
                                network           Designated Router
                    3           Link to stub      IP network number
@@ -6980,7 +7025,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            Finally, the cost of using the link for output is specified.
+            <span class="hl1">Finally, the cost of using the link for output is specified.
             The output cost of a link is configurable.  With the
             exception of links to stub networks, the output cost must
             always be non-zero.
@@ -6997,7 +7042,7 @@ Table of Contents
                 should be examined.
 
             o   If the state of the interface is Down, no links are
-                added.
+                added.</span>
 
             o   If the state of the interface is Loopback, add a Type 3
                 link (stub network) as long as this is not an interface
@@ -7006,10 +7051,10 @@ Table of Contents
                 set to the mask 0xffffffff (indicating a host route),
                 and the cost set to 0.
 
-            o   Otherwise, the link descriptions added to the router-LSA
+            <span class="hl1">o   Otherwise, the link descriptions added to the router-LSA
                 depend on the OSPF interface type. Link descriptions
                 used for point-to-point interfaces are specified in
-                <a href="#section-12.4.1.1">Section 12.4.1.1</a>, for virtual links in <a href="#section-12.4.1.2">Section 12.4.1.2</a>,
+                <a href="#section-12.4.1.1">Section 12.4.1.1</a></span>, for virtual links in <a href="#section-12.4.1.2">Section 12.4.1.2</a>,
                 for broadcast and NBMA interfaces in 12.4.1.3, and for
                 Point-to-MultiPoint interfaces in 12.4.1.4.
 
@@ -7032,18 +7077,18 @@ Table of Contents
 
             <a class="selflink" id="section-12.4.1.1" href="#section-12.4.1.1">12.4.1.1</a>.  Describing point-to-point interfaces
 
-                For point-to-point interfaces, one or more link
+                <span class="hl1">For point-to-point interfaces, one or more link
                 descriptions are added to the router-LSA as follows:
 
                 o   If the neighboring router is fully adjacent, add a
                     Type 1 link (point-to-point). The Link ID should be
-                    set to the Router ID of the neighboring router. For
+                    set to the Router ID of the neighboring router.</span> For
                     numbered point-to-point networks, the Link Data
                     should specify the IP interface address. For
                     unnumbered point-to-point networks, the Link Data
                     field should specify the interface&#x27;s MIB-II [<a href="#ref-Ref8">Ref8</a>]
-                    ifIndex value. The cost should be set to the output
-                    cost of the point-to-point interface.
+                    ifIndex value. <span class="hl1">The cost should be set to the output
+                    cost of the point-to-point interface.</span>
 
                 o   In addition, as long as the state of the interface
                     is &quot;Point-to-Point&quot; (and regardless of the
@@ -7682,7 +7727,7 @@ Table of Contents
 
 <span class="h2"><a class="selflink" id="section-13" href="#section-13">13</a>.  The Flooding Procedure</span>
 
-    Link State Update packets provide the mechanism for flooding LSAs.
+    <span class="hl1">Link State Update packets provide the mechanism for flooding LSAs.
     A Link State Update packet may contain several distinct LSAs, and
     floods each LSA one hop further from its point of origination.  To
     make the flooding procedure reliable, each LSA must be acknowledged
@@ -7721,7 +7766,7 @@ Table of Contents
 
     (4) Else if the LSA&#x27;s LS age is equal to MaxAge, and there is
         currently no instance of the LSA in the router&#x27;s link state
-        database, and none of router&#x27;s neighbors are in states Exchange
+        database, and none of router&#x27;s neighbors are in states Exchange</span>
 
 
 
@@ -7730,7 +7775,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        or Loading, then take the following actions: a) Acknowledge the
+        <span class="hl1">or Loading, then take the following actions: a) Acknowledge the
         receipt of the LSA by sending a Link State Acknowledgment packet
         back to the sending neighbor (see <a href="#section-13.5">Section 13.5</a>), and b) Discard
         the LSA and examine the next LSA (if any) listed in the Link
@@ -7749,10 +7794,10 @@ Table of Contents
             in the Link State Update packet.
 
         (b) Otherwise immediately flood the new LSA out some subset of
-            the router&#x27;s interfaces (see <a href="#section-13.3">Section 13.3</a>).  In some cases
+            the router&#x27;s interfaces (see <a href="#section-13.3">Section 13.3</a>).</span>  In some cases
             (e.g., the state of the receiving interface is DR and the
             LSA was received from a router other than the Backup DR) the
-            LSA will be flooded back out the receiving interface.  This
+            LSA will be flooded back out the receiving interface.  <span class="hl1">This
             occurrence should be noted for later use by the
             acknowledgment process (<a href="#section-13.5">Section 13.5</a>).
 
@@ -7770,7 +7815,7 @@ Table of Contents
 
         (e) Possibly acknowledge the receipt of the LSA by sending a
             Link State Acknowledgment packet back out the receiving
-            interface.  This is explained below in <a href="#section-13.5">Section 13.5</a>.
+            interface.  This is explained below in <a href="#section-13.5">Section 13.5</a>.</span>
 
 
 
@@ -7780,7 +7825,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        (f) If this new LSA indicates that it was originated by the
+        <span class="hl1">(f) If this new LSA indicates that it was originated by the
             receiving router itself (i.e., is considered a self-
             originated LSA), the router must take special action, either
             updating the LSA or in some cases flushing it from the
@@ -7821,7 +7866,7 @@ Table of Contents
         Link State Update within the last MinLSArrival seconds, send the
         database copy back to the sending neighbor, encapsulated within
         a Link State Update Packet. The Link State Update Packet should
-        be sent directly to the neighbor. In so doing, do not put the
+        be sent directly to the neighbor. In so doing, do not put the</span>
 
 
 
@@ -7830,14 +7875,14 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        database copy of the LSA on the neighbor&#x27;s link state
+        <span class="hl1">database copy of the LSA on the neighbor&#x27;s link state
         retransmission list, and do not acknowledge the received (less
-        recent) LSA instance.
+        recent) LSA instance.</span>
 
 
     <a class="selflink" id="section-13.1" href="#section-13.1">13.1</a>.  Determining which LSA is newer
 
-        When a router encounters two instances of an LSA, it must
+        <span class="hl1">When a router encounters two instances of an LSA, it must
         determine which is more recent.  This occurred above when
         comparing a received LSA to its database copy.  This comparison
         must also be done during the Database Exchange procedure which
@@ -7866,7 +7911,7 @@ Table of Contents
             more than MaxAgeDiff, the instance having the smaller
             (younger) LS age is considered to be more recent.
 
-        o   Else, the two instances are considered to be identical.
+        o   Else, the two instances are considered to be identical.</span>
 
 
 
@@ -7882,7 +7927,7 @@ Table of Contents
 
     <a class="selflink" id="section-13.2" href="#section-13.2">13.2</a>.  Installing LSAs in the database
 
-        Installing a new LSA in the database, either as the result of
+        <span class="hl1">Installing a new LSA in the database, either as the result of
         flooding or a newly self-originated LSA, may cause the OSPF
         routing table structure to be recalculated.  The contents of the
         new LSA should be compared to the old instance, if present.  If
@@ -7915,7 +7960,7 @@ Table of Contents
             boundary routers may belong to multiple areas.  A change in
             the area currently providing the best route may force the
             router to use an intra-area route provided by a different
-            area.[19]
+            area.[19]</span>
 
         Summary-LSAs
             The best route to the destination described by the summary-
@@ -7935,15 +7980,15 @@ Table of Contents
             external-LSA must be recalculated (see <a href="#section-16.6">Section 16.6</a>).
 
 
-        Also, any old instance of the LSA must be removed from the
+        <span class="hl1">Also, any old instance of the LSA must be removed from the
         database when the new LSA is installed.  This old instance must
         also be removed from all neighbors&#x27; Link state retransmission
-        lists (see <a href="#section-10">Section 10</a>).
+        lists (see <a href="#section-10">Section 10</a>).</span>
 
 
     <a class="selflink" id="section-13.3" href="#section-13.3">13.3</a>.  Next step in the flooding procedure
 
-        When a new (and more recent) LSA has been received, it must be
+        <span class="hl1">When a new (and more recent) LSA has been received, it must be
         flooded out some set of the router&#x27;s interfaces.  This section
         describes the second part of flooding procedure (the first part
         being the processing that occurred in <a href="#section-13">Section 13</a>), namely,
@@ -7961,7 +8006,7 @@ Table of Contents
 
         Depending upon the LSA&#x27;s LS type, the LSA can be flooded out
         only certain interfaces.  These interfaces, defined by the
-        following, are called the eligible interfaces:
+        following, are called the eligible interfaces:</span>
 
 
         AS-external-LSAs (LS Type = 5)
@@ -7970,8 +8015,8 @@ Table of Contents
             interfaces are all the router&#x27;s interfaces, excluding
             virtual links and those interfaces attaching to stub areas.
 
-        All other LS types
-            All other types are specific to a single area (Area A).  The
+        <span class="hl1">All other LS types
+            All other types are specific to a single area (Area A).  The</span>
 
 
 
@@ -7980,12 +8025,12 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            eligible interfaces are all those interfaces attaching to
-            the Area A.  If Area A is the backbone, this includes all
+            <span class="hl1">eligible interfaces are all those interfaces attaching to
+            the Area A.</span>  If Area A is the backbone, this includes all
             the virtual links.
 
 
-        Link state databases must remain synchronized over all
+        <span class="hl1">Link state databases must remain synchronized over all
         adjacencies associated with the above eligible interfaces.  This
         is accomplished by executing the following steps on each
         eligible interface.  It should be noted that this procedure may
@@ -8021,7 +8066,7 @@ Table of Contents
                     examine the next neighbor.[20]
 
                 o   Else, the new LSA is more recent.  Delete the LSA
-                    from the Link state request list.
+                    from the Link state request list.</span>
 
 
 
@@ -8030,7 +8075,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            (c) If the new LSA was received from this neighbor, examine
+            <span class="hl1">(c) If the new LSA was received from this neighbor, examine
                 the next neighbor.
 
             (d) At this point we are not positive that the neighbor has
@@ -8044,7 +8089,7 @@ Table of Contents
             this interface.  If in the previous step, the LSA was NOT
             added to any of the Link state retransmission lists, there
             is no need to flood the LSA out the interface and the next
-            interface should be examined.
+            interface should be examined.</span>
 
         (3) If the new LSA was received on this interface, and it was
             received from either the Designated Router or the Backup
@@ -8060,13 +8105,13 @@ Table of Contents
             the Backup Designated Router) will end up retransmitting the
             updates.
 
-        (5) If this step is reached, the LSA must be flooded out the
+        <span class="hl1">(5) If this step is reached, the LSA must be flooded out the
             interface.  Send a Link State Update packet (including the
             new LSA as contents) out the interface.  The LSA&#x27;s LS age
             must be incremented by InfTransDelay (which must be &gt; 0)
             when it is copied into the outgoing Link State Update packet
             (until the LS age field reaches the maximum value of
-            MaxAge).
+            MaxAge).</span>
 
             On broadcast networks, the Link State Update packets are
             multicast.  The destination IP address specified for the
@@ -8083,23 +8128,28 @@ Table of Contents
             address AllSPFRouters should be used.  Otherwise, the
             address AllDRouters should be used.
 
-            On non-broadcast networks, separate Link State Update
+            <span class="hl1">On non-broadcast networks, separate Link State Update
             packets must be sent, as unicasts, to each adjacent neighbor
             (i.e., those in state Exchange or greater).  The destination
             IP addresses for these packets are the neighbors&#x27; IP
-            addresses.
+            addresses.</span>
 
 
     <a class="selflink" id="section-13.4" href="#section-13.4">13.4</a>.  Receiving self-originated LSAs
 
-        It is a common occurrence for a router to receive self-
+        <span class="hl1">It is a common occurrence for a router to receive self-
         originated LSAs via the flooding procedure. A self-originated
         LSA is detected when either 1) the LSA&#x27;s Advertising Router is
-        equal to the router&#x27;s own Router ID or 2) the LSA is a network-
+        equal to the router&#x27;s own Router ID</span> or 2) the LSA is a network-
         LSA and its Link State ID is equal to one of the router&#x27;s own IP
         interface addresses.
 
-        However, if the received self-originated LSA is newer than the
+   <span class="remarks">In IPv6, the definition of a self-originated LSA has been simplified
+   from the IPv4 definition appearing in Sections <a href="#section-13.4">13.4</a> and <a href="#section-14.1">14.1</a> of
+   [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>].  For IPv6, self-originated LSAs are those LSAs whose
+   Advertising Router is equal to the router&#x27;s own Router ID.</span>
+
+        <span class="hl1">However, if the received self-originated LSA is newer than the
         last instance that the router actually originated, the router
         must take special action.  The reception of such an LSA
         indicates that there are LSAs in the routing domain that were
@@ -8109,7 +8159,7 @@ Table of Contents
         originate a new instance of the LSA.
 
         It may be the case the router no longer wishes to originate the
-        received LSA. Possible examples include: 1) the LSA is a
+        received LSA.</span> Possible examples include: 1) the LSA is a
         summary-LSA or AS-external-LSA and the router no longer has an
         (advertisable) route to the destination, 2) the LSA is a
         network-LSA but the router is no longer Designated Router for
@@ -8117,10 +8167,10 @@ Table of Contents
         is one of the router&#x27;s own IP interface addresses but whose
         Advertising Router is not equal to the router&#x27;s own Router ID
         (this latter case should be rare, and it indicates that the
-        router&#x27;s Router ID has changed since originating the LSA).  In
+        router&#x27;s Router ID has changed since originating the LSA).  <span class="hl1">In
         all these cases, instead of updating the LSA, the LSA should be
         flushed from the routing domain by incrementing the received
-        LSA&#x27;s LS age to MaxAge and reflooding (see <a href="#section-14.1">Section 14.1</a>).
+        LSA&#x27;s LS age to MaxAge and reflooding (see <a href="#section-14.1">Section 14.1</a>).</span>
 
 
 
@@ -8132,7 +8182,7 @@ Table of Contents
 
     <a class="selflink" id="section-13.5" href="#section-13.5">13.5</a>.  Sending Link State Acknowledgment packets
 
-        Each newly received LSA must be acknowledged.  This is usually
+        <span class="hl1">Each newly received LSA must be acknowledged.  This is usually
         done by sending Link State Acknowledgment packets.  However,
         acknowledgments can also be accomplished implicitly by sending
         Link State Update packets (see step 7a of <a href="#section-13">Section 13</a>).
@@ -8165,11 +8215,11 @@ Table of Contents
         packets is described in Table 19.  The circumstances surrounding
         the receipt of the LSA are listed in the left column.  The
         acknowledgment action then taken is listed in one of the two
-        right columns.  This action depends on the state of the
+        right columns.</span>  This action depends on the state of the
         concerned interface; interfaces in state Backup behave
-        differently from interfaces in all other states.  Delayed
+        differently from interfaces in all other states.  <span class="hl1">Delayed
         acknowledgments must be delivered to all adjacent routers
-        associated with the interface.  On broadcast networks, this is
+        associated with the interface.</span>  On broadcast networks, this is
         accomplished by sending the delayed Link State Acknowledgment
         packets as multicasts.  The Destination IP address used depends
 
@@ -8184,8 +8234,8 @@ Table of Contents
 
 
 
-                                     Action taken in state
-   Circumstances            Backup                All other states
+                                     <span class="hl1">Action taken in state</span>
+   <span class="hl1">Circumstances</span>            Backup                <span class="hl1">All other states</span>
    _________________________________________________________________
    LSA  has                 No  acknowledgment    No  acknowledgment
    been  flooded back       sent.                 sent.
@@ -8193,7 +8243,7 @@ Table of Contents
    terface  (see Sec-
    tion 13, step 5b).
    _________________________________________________________________
-   LSA   is                 Delayed acknowledg-   Delayed       ack-
+   <span class="hl1">LSA   is                 Delayed acknowledg-   Delayed       ack-
    more  recent  than       ment sent if adver-   nowledgment sent.
    database copy, but       tisement   received
    was   not  flooded       from    Designated
@@ -8221,7 +8271,7 @@ Table of Contents
    in the link state
    database, and none
    of router&#x27;s neighbors
-   are in states Exchange
+   are in states Exchange</span>
 
 
 
@@ -8230,8 +8280,8 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-   or Loading (see
-   <a href="#section-13">Section 13</a>, step 4).
+   <span class="hl1">or Loading (see
+   <a href="#section-13">Section 13</a>, step 4).</span>
 
 
              Table 19: Sending link state acknowledgements.
@@ -8241,10 +8291,10 @@ Table of Contents
 
         on the state of the interface.  If the interface state is DR or
         Backup, the destination AllSPFRouters is used.  In all other
-        states, the destination AllDRouters is used.  On non-broadcast
+        states, the destination AllDRouters is used.  <span class="hl1">On non-broadcast
         networks, delayed Link State Acknowledgment packets must be
         unicast separately over each adjacency (i.e., neighbor whose
-        state is &gt;= Exchange).
+        state is &gt;= Exchange).</span>
 
         The reasoning behind sending the above packets as multicasts is
         best explained by an example.  Consider the network
@@ -8267,11 +8317,11 @@ Table of Contents
 
     <a class="selflink" id="section-13.6" href="#section-13.6">13.6</a>.  Retransmitting LSAs
 
-        LSAs flooded out an adjacency are placed on the adjacency&#x27;s Link
+        <span class="hl1">LSAs flooded out an adjacency are placed on the adjacency&#x27;s Link
         state retransmission list.  In order to ensure that flooding is
         reliable, these LSAs are retransmitted until they are
         acknowledged.  The length of time between retransmissions is a
-        configurable per-interface value, RxmtInterval.  If this is set
+        configurable per-interface value, RxmtInterval.  If this is set</span>
 
 
 
@@ -8280,7 +8330,7 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        too low for an interface, needless retransmissions will ensue.
+        <span class="hl1">too low for an interface, needless retransmissions will ensue.
         If the value is set too high, the speed of the flooding, in the
         face of lost packets, may be affected.
 
@@ -8292,9 +8342,9 @@ Table of Contents
         retransmission timer.
 
         Link State Update Packets carrying retransmissions are always
-        sent directly to the neighbor. On multi-access networks, this
+        sent directly to the neighbor.</span> On multi-access networks, this
         means that retransmissions are sent directly to the neighbor&#x27;s
-        IP address.  Each LSA&#x27;s LS age must be incremented by
+        IP address.  <span class="hl1">Each LSA&#x27;s LS age must be incremented by
         InfTransDelay (which must be &gt; 0) when it is copied into the
         outgoing Link State Update packet (until the LS age field
         reaches the maximum value of MaxAge).
@@ -8302,12 +8352,12 @@ Table of Contents
         If an adjacent router goes down, retransmissions may occur until
         the adjacency is destroyed by OSPF&#x27;s Hello Protocol.  When the
         adjacency is destroyed, the Link state retransmission list is
-        cleared.
+        cleared.</span>
 
 
     <a class="selflink" id="section-13.7" href="#section-13.7">13.7</a>.  Receiving link state acknowledgments
 
-        Many consistency checks have been made on a received Link State
+        <span class="hl1">Many consistency checks have been made on a received Link State
         Acknowledgment packet before it is handed to the flooding
         procedure.  In particular, it has been associated with a
         particular neighbor.  If this neighbor is in a lesser state than
@@ -8319,7 +8369,7 @@ Table of Contents
 
         o   Does the LSA acknowledged have an instance on the Link state
             retransmission list for the neighbor?  If not, examine the
-            next acknowledgment.  Otherwise:
+            next acknowledgment.  Otherwise:</span>
 
 
 
@@ -8330,17 +8380,17 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-        o   If the acknowledgment is for the same instance that is
+        <span class="hl1">o   If the acknowledgment is for the same instance that is
             contained on the list, remove the item from the list and
             examine the next acknowledgment.  Otherwise:
 
         o   Log the questionable acknowledgment, and examine the next
-            one.
+            one.</span>
 
 
 <span class="h2"><a class="selflink" id="section-14" href="#section-14">14</a>.  Aging The Link State Database</span>
 
-    Each LSA has an LS age field.  The LS age is expressed in seconds.
+    <span class="hl1">Each LSA has an LS age field.  The LS age is expressed in seconds.
     An LSA&#x27;s LS age field is incremented while it is contained in a
     router&#x27;s database.  Also, when copied into a Link State Update
     Packet for flooding out a particular interface, the LSA&#x27;s LS age is
@@ -8362,7 +8412,7 @@ Table of Contents
     A MaxAge LSA must be removed immediately from the router&#x27;s link
     state database as soon as both a) it is no longer contained on any
     neighbor Link state retransmission lists and b) none of the router&#x27;s
-    neighbors are in states Exchange or Loading.
+    neighbors are in states Exchange or Loading.</span>
 
     When, in the process of aging the link state database, an LSA&#x27;s LS
     age hits a multiple of CheckAge, its LS checksum should be verified.
@@ -8382,7 +8432,7 @@ Table of Contents
 
     <a class="selflink" id="section-14.1" href="#section-14.1">14.1</a>.  Premature aging of LSAs
 
-        An LSA can be flushed from the routing domain by setting its LS
+        <span class="hl1">An LSA can be flushed from the routing domain by setting its LS
         age to MaxAge, while leaving its LS sequence number alone, and
         then reflooding the LSA.  This procedure follows the same course
         as flushing an LSA whose LS age has naturally reached the value
@@ -8398,7 +8448,7 @@ Table of Contents
         LSA instance (having LS sequence number MaxSequenceNumber) must
         be prematurely aged and flushed from the routing domain before a
         new instance with sequence number equal to InitialSequenceNumber
-        can be originated.  See <a href="#section-12.1.6">Section 12.1.6</a> for more information.
+        can be originated.  See <a href="#section-12.1.6">Section 12.1.6</a> for more information.</span>
 
         Premature aging can also be used when, for example, one of the
         router&#x27;s previously advertised external routes is no longer
@@ -8406,7 +8456,7 @@ Table of Contents
         external-LSA from the routing domain via premature aging. This
         procedure is preferable to the alternative, which is to
         originate a new LSA for the destination specifying a metric of
-        LSInfinity.  Premature aging is also be used when unexpectedly
+        LSInfinity.  <span class="hl1">Premature aging is also be used when unexpectedly
         receiving self-originated LSAs during the flooding procedure
         (see <a href="#section-13.4">Section 13.4</a>).
 
@@ -8414,7 +8464,7 @@ Table of Contents
         The router may not prematurely age LSAs that have been
         originated by other routers. An LSA is considered self-
         originated when either 1) the LSA&#x27;s Advertising Router is equal
-        to the router&#x27;s own Router ID or 2) the LSA is a network-LSA and
+        to the router&#x27;s own Router ID</span> or 2) the LSA is a network-LSA and
         its Link State ID is equal to one of the router&#x27;s own IP
         interface addresses.
 
