@@ -8750,21 +8750,27 @@ Table of Contents
             <a href="#appendix-A.4.2">Section A.4.2</a>) is set, set Area A&#x27;s TransitCapability to
             TRUE.  <span class="hl2">In any case, each link described by the LSA gives the
             cost to an adjacent vertex.  For each described link, (say
-            it joins vertex V to vertex W):
+            it joins vertex V to vertex W):</span>
 
             (a) If this is a link to a stub network, examine the next
                 link in V&#x27;s LSA.  Links to stub networks will be
                 considered in the second stage of the shortest path
                 calculation.
 
-            (b) Otherwise, W is a transit vertex (router or transit
+            <span class="hl2">(b) Otherwise, W is a transit vertex (router or transit
                 network).  Look up the vertex W&#x27;s LSA (router-LSA or
                 network-LSA) in Area A&#x27;s link state database.  If the
                 LSA does not exist, or its LS age is equal to MaxAge, or
                 it does not have a link back to vertex V, examine the
-                next link in V&#x27;s LSA.[23]
+                next link in V&#x27;s LSA.[23]</span>
 
-            (c) If vertex W is already on the shortest-path tree,
+<span class="remarks">o  In Step 2b, if W is a router, there may again be multiple LSAs
+      associated with the router.  All router-LSAs with the Advertising
+      Router set to W's OSPF Router ID MUST be processed as an
+      aggregate, treating them as fragments of a single large router-
+      LSA.</span>
+
+            <span class="hl2">(c) If vertex W is already on the shortest-path tree,
                 examine the next link in the LSA.
 
             (d) Calculate the link state cost D of the resulting path
@@ -8886,18 +8892,31 @@ Table of Contents
         the above first phase are discarded.  For each reachable router
         vertex (call it V), the associated router-LSA is found in the
         link state database.  Each stub network link appearing in the
-        LSA is then examined, and the following steps are executed:
+        LSA is then examined, and the following steps are executed:</span>
 
-        (1) Calculate the distance D of stub network from the root.  D
+   <span class="remarks">o  Prefix information has been removed from router-LSAs and network-
+      LSAs and is now advertised in intra-area-prefix-LSAs.  Whenever
+      [<a href="#ref-OSPFV2" title="&quot;OSPF Version 2&quot;">OSPFV2</a>] specifies that stub networks within router-LSAs be
+      examined, IPv6 will instead examine prefixes within intra-area-
+      prefix-LSAs.</span>
+
+        <span class="hl2">(1) Calculate the distance D of stub network from the root.  D
             is equal to the distance from the root to the router vertex
             (calculated in stage 1), plus the stub network link&#x27;s
             advertised cost.  Compare this distance to the current best
             cost to the stub network.  This is done by looking up the
             stub network&#x27;s current routing table entry.  If the
             calculated distance D is larger, go on to examine the next
-            stub network link in the LSA.
+            stub network link in the LSA.</span>
 
-        (2) If this step is reached, the stub network&#x27;s routing table
+   <span class="remarks">The cost of any advertised prefix is the sum of
+   the prefix&#x27;s advertised metric plus the cost to the transit vertex
+   (either router or transit network) identified by intra-area-prefix-
+   LSA&#x27;s Referenced LS Type, Referenced Link State ID, and Referenced
+   Advertising Router fields.  This latter cost is stored in the transit
+   vertex&#x27;s routing table entry for the area.</span>
+
+        <span class="hl2">(2) If this step is reached, the stub network&#x27;s routing table
             entry must be updated.  Calculate the set of next hops that
             would result from using the stub network link.  This
             calculation is shown in <a href="#section-16.1.1">Section 16.1.1</a>; input to this
