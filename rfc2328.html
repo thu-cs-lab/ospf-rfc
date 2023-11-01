@@ -3459,9 +3459,11 @@ Table of Contents
 
         Version #
             Set to 2, the version number of the protocol as documented
-            in this specification.
+            in this specification.</span>
 
-        Packet type
+   <span class="remarks">o  The OSPF version number has been incremented from 2 to 3.</span>
+
+        <span class="hl2">Packet type
             The type of OSPF packet, such as Link state Update or Hello
             Packet.</span>
 
@@ -3483,15 +3485,24 @@ Table of Contents
             packet).
 
         Area ID
-            The OSPF area that the packet is being sent into.
+            The OSPF area that the packet is being sent into.</span>
 
-        Checksum
+   <span class="remarks">Instance ID
+      The OSPF Instance ID associated with the interface out of which
+      the packet is being sent.</span>
+
+        <span class="hl2">Checksum
             The standard IP 16-bit one&#x27;s complement checksum of the
-            entire OSPF packet, excluding the 64-bit authentication
+            entire OSPF packet</span>, excluding the 64-bit authentication
             field.  This checksum is calculated as part of the
             appropriate authentication procedure; for some OSPF
             authentication types, the checksum calculation is omitted.
-            See <a href="#appendix-D.4">Section D.4</a> for details.</span>
+            See <a href="#appendix-D.4">Section D.4</a> for details.
+
+   <span class="remarks">Checksum
+      The standard IPv6 Upper-Layer checksum (as described in Section
+      8.1 of [<a href="rfc5340.html#ref-IPV6" title="&quot;Internet Protocol, Version 6 (IPv6) Specification&quot;">IPV6</a>]) covering the entire OSPF packet and prepended IPv6
+      pseudo-header (see <a href="rfc5340.html#appendix-A.3.1">Appendix A.3.1</a>).</span>
 
         AuType and Authentication
             Each OSPF packet exchange is authenticated.  Authentication
@@ -3602,9 +3613,15 @@ Table of Contents
 
         <span class="hl2">o   The packet&#x27;s IP destination address must be the IP address
             of the receiving interface, or one of the IP multicast
-            addresses AllSPFRouters or AllDRouters.
+            addresses AllSPFRouters or AllDRouters.</span>
 
-        o   The IP protocol specified must be OSPF (89).
+   <span class="remarks">o  The packet&#x27;s IP destination address MUST be one of the IPv6
+      unicast addresses associated with the receiving interface (this
+      includes link-local addresses), one of the IPv6 multicast
+      addresses AllSPFRouters or AllDRouters, or an IPv6 global address
+      (for virtual links).</span>
+
+        <span class="hl2">o   The IP protocol specified must be OSPF (89).
 
         o   Locally originated packets should not be passed on to OSPF.
             That is, the source IP address should be examined to make
@@ -3617,11 +3634,29 @@ Table of Contents
         interface.  If they do not, the packet should be discarded:
 
 
-        o   The version number field must specify protocol version 2.
+        o   The version number field must specify protocol version 2.</span>
 
-        o   The Area ID found in the OSPF header must be verified.  If
+   <span class="remarks">o  The version number field MUST specify protocol version 3.
+
+   o  The IPv6 Upper-Layer checksum (as described in Section 8.1 of
+      [<a href="rfc5340.html#ref-IPV6" title="&quot;Internet Protocol, Version 6 (IPv6) Specification&quot;">IPV6</a>]), covering the entire OSPF packet and prepended IPv6
+      pseudo-header, must be verified (see <a href="rfc5340.html#appendix-A.3.1">Appendix A.3.1</a>).</span>
+
+        <span class="hl2">o   The Area ID found in the OSPF header must be verified.</span>  If
             both of the following cases fail, the packet should be
-            discarded.  The Area ID specified in the header must either:</span>
+            discarded.  The Area ID specified in the header must either:
+
+   <span class="remarks">o  The Area ID and Instance ID found in the OSPF header must be
+      verified.  If both of the following cases fail, the packet should
+      be discarded.  The Area ID and Instance ID specified in the header
+      must either:
+
+      1.  Match one of the Area ID(s) and Interface Instance ID(s) for
+          the receiving link.  Unlike IPv4, the IPv6 source address is
+          not restricted to lie within the same IPv6 subnet as the
+          receiving link.  IPv6 OSPF runs per-link instead of per-IP-
+          subnet.</span>
+
 
 
 
@@ -3630,13 +3665,13 @@ Table of Contents
 <span class="grey"><a href="/doc/html/rfc2328">RFC 2328</a>                     OSPF Version 2                   April 1998</span>
 
 
-            <span class="hl2">(1) Match the Area ID of the receiving interface.  In this
+            (1) Match the Area ID of the receiving interface.  In this
                 case, the packet has been sent over a single hop.
                 Therefore, the packet&#x27;s IP source address is required to
                 be on the same network as the receiving interface.  This
                 can be verified by comparing the packet&#x27;s IP source
                 address to the interface&#x27;s IP address, after masking
-                both addresses with the interface mask.</span>  This comparison
+                both addresses with the interface mask.  This comparison
                 should not be performed on point-to-point networks. On
                 point-to-point networks, the interface addresses of each
                 end of the link are assigned independently, if they are
@@ -3684,11 +3719,11 @@ Table of Contents
         by the Hello Protocol (see <a href="#section-10.5">Section 10.5</a>).</span>  <span class="hl1">All other packet
         types are sent/received only on adjacencies.  This means that
         the packet must have been sent by one of the router&#x27;s active
-        neighbors.  If the receiving interface connects to a broadcast
+        neighbors.</span>  If the receiving interface connects to a broadcast
         network, Point-to-MultiPoint network or NBMA network the sender
         is identified by the IP source address found in the packet&#x27;s IP
         header.  If the receiving interface connects to a point-to-point
-        network or a virtual link, the sender is identified by the
+        network or a virtual link, <span class="hl1">the sender is identified by the
         Router ID (source router) found in the packet&#x27;s OSPF header.
         The data structure associated with the receiving interface
         contains the list of active neighbors.  Packets not matching any
@@ -4469,6 +4504,15 @@ Table of Contents
         attached neighbor every HelloInterval seconds. Sending of Hello
         packets on NBMA networks is covered in the next section.
 
+   <span class="remarks">IPv6 changes the way OSPF Hello packets are sent in the following
+   ways (compare to <a href="#section-9.5">Section 9.5</a> of [<a href="#" title="&quot;OSPF Version 2&quot;">OSPFV2</a>]):
+
+   o  Before the Hello packet is sent on an interface, the interface&#x27;s
+      Interface ID MUST be copied into the Hello packet.
+
+   o  The Hello packet no longer contains an IP network mask since OSPF
+      for IPv6 runs per-link instead of per-subnet.</span>
+
 
 
 
@@ -4601,6 +4645,14 @@ Table of Contents
         neighbor&#x27;s Hello packets, this item is used when selecting the
         Designated Router for the attached network.
 
+   <span class="remarks">Neighbor&#x27;s Interface ID
+      The Interface ID that the neighbor advertises in its Hello packets
+      must be recorded in the neighbor structure.  The router will
+      include the neighbor&#x27;s Interface ID in the router&#x27;s router-LSA
+      when either a) advertising a point-to-point or point-to-multipoint
+      link to the neighbor or b) advertising a link to a network where
+      the neighbor has become the Designated Router.</span>
+
     <span class="hl1">Neighbor IP address
         The IP address of the neighboring router&#x27;s interface to the
         attached network.  Used as the Destination IP address when
@@ -4611,6 +4663,11 @@ Table of Contents
         Hello packets are received from the neighbor.</span>  For virtual
         links, the Neighbor IP address is learned during the routing
         table build process (see <a href="#section-15">Section 15</a>).
+
+   <span class="remarks">Neighbor IP address
+      The neighbor&#x27;s IPv6 address contained as the source address in
+      OSPF for IPv6 packets.  This will be an IPv6 link-local address
+      for all link types except virtual links.</span>
 
     Neighbor Options
         The optional OSPF capabilities supported by the neighbor.
@@ -5359,17 +5416,19 @@ Table of Contents
         Hello Packet.  (See <a href="#appendix-A.3.2">Section A.3.2</a> for the format of Hello
         packets.)  The generic input processing of OSPF packets will
         have checked the validity of the IP header and the OSPF packet
-        header.  Next, the values of the Network Mask, HelloInterval,
+        header.  Next, the values of the</span> Network Mask, <span class="hl2">HelloInterval,
         and RouterDeadInterval fields in the received Hello packet must
         be checked against the values configured for the receiving
         interface.  Any mismatch causes processing to stop and the
         packet to be dropped.  In other words, the above fields are
-        really describing the attached network&#x27;s configuration. However,
+        really describing the attached network&#x27;s configuration.</span> However,
         there is one exception to the above rule: on point-to-point
         networks and on virtual links, the Network Mask in the received
         Hello Packet should be ignored.
 
-        The receiving interface attaches to a single OSPF area (this
+   <span class="remarks">o  There is no longer a Network Mask field in the Hello packet.</span>
+
+        <span class="hl2">The receiving interface attaches to a single OSPF area (this
         could be the backbone).</span>  The setting of the E-bit found in the
         Hello Packet&#x27;s Options field must match this area&#x27;s
 
@@ -5401,9 +5460,9 @@ Table of Contents
         initial state of a newly created neighbor is set to Down.</span>
 
         When receiving an Hello Packet from a neighbor on a broadcast,
-        Point-to-MultiPoint or NBMA network, set the neighbor
+        Point-to-MultiPoint or NBMA network, <span class="hl2">set the neighbor
         structure&#x27;s Neighbor ID equal to the Router ID found in the
-        packet&#x27;s OSPF header.  For these network types, the neighbor
+        packet&#x27;s OSPF header.</span>  For these network types, the neighbor
         structure&#x27;s Router Priority field, Neighbor&#x27;s Designated Router
         field, and Neighbor&#x27;s Backup Designated Router field are also
         set equal to the corresponding fields found in the received
@@ -5411,9 +5470,15 @@ Table of Contents
         possible use in the steps below.  <span class="hl2">When receiving an Hello on a
         point-to-point network (but not on a virtual link) set the
         neighbor structure&#x27;s Neighbor IP address to the packet&#x27;s IP
-        source address.
+        source address.</span>
 
-        Now the rest of the Hello Packet is examined, generating events
+   <span class="remarks">o  On all link types (e.g., broadcast, NBMA, point-to-point, etc.),
+      neighbors are identified solely by their OSPF Router ID.  For all
+      link types except virtual links, the Neighbor IP address is set to
+      the IPv6 source address in the IPv6 header of the received OSPF
+      Hello packet.</span>
+
+        <span class="hl2">Now the rest of the Hello Packet is examined, generating events
         to be given to the neighbor and interface state machines.  These
         state machines are specified either to be executed or scheduled
         (see <a href="#section-4.4">Section 4.4</a>).  For example, by specifying below that the
@@ -5636,9 +5701,14 @@ Table of Contents
         the LSA.  If it does not, or if the database copy is less recent
         (see <a href="#section-13.1">Section 13.1</a>), the LSA is put on the Link state request
         list so that it can be requested (immediately or at some later
-        time) in Link State Request Packets.
+        time) in Link State Request Packets.</span>
 
-        When the router accepts a received Database Description Packet
+   <span class="remarks">o  LSAs with unknown LS types in Database Description packets that
+      have an acceptable flooding scope are processed the same as LSAs
+      with known LS types.  In OSPFv2 [<a href="#" title="&quot;OSPF Version 2&quot;">OSPFV2</a>], these would result in
+      the adjacency being brought down with a SequenceMismatch event.</span>
+
+        <span class="hl1">When the router accepts a received Database Description Packet
         as the next in sequence, it also performs the following actions,
         depending on whether it is master or slave:
 
@@ -7095,6 +7165,9 @@ Table of Contents
                     neighboring router state), a Type 3 link (stub
                     network) should be added. There are two forms that
                     this stub link can take:
+
+   <span class="remarks">Host routes for stub networks no longer appear in the router-LSA.
+   Rather, they are included in intra-area-prefix-LSAs.</span>
 
                     Option 1
                         Assuming that the neighboring router&#x27;s IP
@@ -8752,6 +8825,12 @@ Table of Contents
             cost to an adjacent vertex.  For each described link, (say
             it joins vertex V to vertex W):</span>
 
+   <span class="remarks">o  In Step 2, when a router Vertex V has just been added to the
+      shortest-path tree, there may be multiple LSAs associated with the
+      router.  All router-LSAs with the Advertising Router set to V&#x27;s
+      OSPF Router ID MUST be processed as an aggregate, treating them as
+      fragments of a single large router-LSA.</span>
+
             (a) If this is a link to a stub network, examine the next
                 link in V&#x27;s LSA.  Links to stub networks will be
                 considered in the second stage of the shortest path
@@ -9858,6 +9937,8 @@ References
 
 <span class="h2"><a class="selflink" id="appendix-A" href="#appendix-A">A</a>. OSPF data formats</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A">Appendix A</a>。</span>
+
     This appendix describes the format of OSPF protocol packets and OSPF
     LSAs.  The OSPF protocol runs directly over the IP network layer.
     Before any data formats are described, the details of the OSPF
@@ -9872,6 +9953,8 @@ References
     OSPF LSAs appears in <a href="#appendix-A.4">Section A.4</a>.
 
 <span class="h3"><a class="selflink" id="appendix-A.1" href="#appendix-A.1">A.1</a> Encapsulation of OSPF packets</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.1">Section A.1</a>。</span>
 
     OSPF runs directly over the Internet Protocol&#x27;s network layer.  OSPF
     packets are therefore encapsulated solely by IP and local data-link
@@ -9957,6 +10040,8 @@ References
 
 
 <span class="h3"><a class="selflink" id="appendix-A.2" href="#appendix-A.2">A.2</a> The Options field</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.2">Section A.2</a>。</span>
 
     The OSPF Options field is present in OSPF Hello packets, Database
     Description packets and all LSAs.  The Options field enables OSPF
@@ -10058,6 +10143,8 @@ References
 
 <span class="h3"><a class="selflink" id="appendix-A.3" href="#appendix-A.3">A.3</a> OSPF Packet Formats</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3">Section A.3</a>。</span>
+
     There are five distinct OSPF packet types.  All OSPF packet types
     begin with a standard 24 byte header.  This header is described
     first.  Each packet type is then described in a succeeding section.
@@ -10107,6 +10194,8 @@ References
 
 
 <span class="h4"><a class="selflink" id="appendix-A.3.1" href="#appendix-A.3.1">A.3.1</a> The OSPF packet header</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.1">Section A.3.1</a>。</span>
 
     Every OSPF packet starts with a standard 24 byte header.  This
     header contains all the information necessary to determine whether
@@ -10258,6 +10347,8 @@ References
 
 <span class="h4"><a class="selflink" id="appendix-A.3.2" href="#appendix-A.3.2">A.3.2</a> The Hello packet</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.2">Section A.3.2</a>。</span>
+
     Hello packets are OSPF packet type 1.  These packets are sent
     periodically on all interfaces (including virtual links) in order to
     establish and maintain neighbor relationships.  In addition, Hello
@@ -10357,6 +10448,8 @@ References
 
 
 <span class="h4"><a class="selflink" id="appendix-A.3.3" href="#appendix-A.3.3">A.3.3</a> The Database Description packet</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.3">Section A.3.3</a>。</span>
 
     Database Description packets are OSPF packet type 2.  These packets
     are exchanged when an adjacency is being initialized.  They describe
@@ -10458,6 +10551,8 @@ References
 
 <span class="h4"><a class="selflink" id="appendix-A.3.4" href="#appendix-A.3.4">A.3.4</a> The Link State Request packet</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.4">Section A.3.4</a>。</span>
+
     Link State Request packets are OSPF packet type 3.  After exchanging
     Database Description packets with a neighboring router, a router may
     find that parts of its link-state database are out-of-date.  The
@@ -10557,6 +10652,8 @@ References
 
 
 <span class="h4"><a class="selflink" id="appendix-A.3.5" href="#appendix-A.3.5">A.3.5</a> The Link State Update packet</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.5">Section A.3.5</a>。</span>
 
     Link State Update packets are OSPF packet type 4.  These packets
     implement the flooding of LSAs.  Each Link State Update packet
@@ -10658,6 +10755,8 @@ References
 
 <span class="h4"><a class="selflink" id="appendix-A.3.6" href="#appendix-A.3.6">A.3.6</a> The Link State Acknowledgment packet</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.3.6">Section A.3.6</a>。</span>
+
     Link State Acknowledgment Packets are OSPF packet type 5.  To make
     the flooding of LSAs reliable, flooded LSAs are explicitly
     acknowledged.  This acknowledgment is accomplished through the
@@ -10758,6 +10857,8 @@ References
 
 <span class="h3"><a class="selflink" id="appendix-A.4" href="#appendix-A.4">A.4</a> LSA formats</span>
 
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.4">Section A.4</a>。</span>
+
     This memo defines five distinct types of LSAs.  Each LSA begins with
     a standard 20 byte LSA header.  This header is explained in Section
     A.4.1.  Succeeding sections then diagram the separate LSA types.
@@ -10807,6 +10908,8 @@ References
 
 
 <span class="h4"><a class="selflink" id="appendix-A.4.1" href="#appendix-A.4.1">A.4.1</a> The LSA header</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.4.2">Section A.4.2</a>。</span>
 
     All LSAs begin with a common 20 byte header.  This header contains
     enough information to uniquely identify the LSA (LS type, Link State
@@ -10907,6 +11010,8 @@ References
 
 
 <span class="h4"><a class="selflink" id="appendix-A.4.2" href="#appendix-A.4.2">A.4.2</a> Router-LSAs</span>
+
+    <span class="remarks">请参见RFC 5340的<a href="rfc5340.html#appendix-A.4.3">Section A.4.3</a>、<a href="rfc5340.html#appendix-A.4.1">Section A.4.1</a>及<a href="rfc5340.html#appendix-A.4.10">Section A.4.10</a>。</span>
 
     Router-LSAs are the Type 1 LSAs.  Each router in an area originates
     a router-LSA.  The LSA describes the state and cost of the router&#x27;s
